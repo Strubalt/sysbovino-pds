@@ -9,37 +9,33 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
-  	
-<title>Cadastro Animal - Mastrinder</title>
+
+<title>Mastrinder - Casdastro de Medicamento</title>
 </head>
 <body>
 <!-- container principal -->
 <div class="container">
-	Cadastro de Animal
-	<div>
+	 <div class="page-header"><h1>Cadastro de novo medicamento</h1></div> 
+	<div class="col-md-6 col-sm-6">
 	  <form class="form-horizontal" role="form">
 	    <div class="form-group">
-	      <label class="control-label col-sm-2" for="codigo">Codigo:</label>
+	      <label class="control-label col-sm-2" for="codigo">Nome:</label>
 	      <div class="col-sm-10">
-	        <input type="email" class="form-control" id="codigo" placeholder="Enter codigo">
+	        <input type="nomeMedicamento" class="form-control" id="nomeMedicamento" placeholder="potenay">
 	      </div>
 	    </div>
+	  
 	    <div class="form-group">
-	     <label class="control-label col-sm-2" for="codigo">Lote:</label>
-	    	<select class="form-control">
-	    		<option>Lote1</option>
-	    	</select>
-	    </div>
-	    <div class="form-group">
-	      <label class="control-label col-sm-2" for="pwd">Nada:</label>
+	      <label class="control-label col-sm-2" for="pwd">Lote:</label>
 	      <div class="col-sm-10">          
-	        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+	        <input type="lote" class="form-control" id="lote" placeholder="Lote:DWWE33242">
 	      </div>
 	    </div>
 	    
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default">Submit</button>
+	        <button type="submit" class="btn btn-default">Salvar</button>
+	        <button type="button" class="btn btn-danger">Cancelar</button>
 	      </div>
 	    </div>
 	  </form>
