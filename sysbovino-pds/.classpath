@@ -8,10 +8,19 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_51">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_60">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/hibernate-commons-annotations-5.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/hibernate-core-5.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/hibernate-entitymanager-5.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/lucene-core-4.10.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/META-INF/Lib/xml-apis-1.3.03.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
