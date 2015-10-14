@@ -10,7 +10,7 @@
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
 
-<title>Mastrinder - Casdastro de Lote</title>
+<title>Mastrinder - Cadastro de Lote</title>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="codigo">Nome:</label>
 	      <div class="col-sm-10">
-	        <input type="nomeMedicamento" class="form-control" id="nomeMedicamento" placeholder="potenay">
+	        <input type="nomeLote" class="form-control" id="idLote" placeholder="potenay">
 	      </div>
 	    </div>
 	  

@@ -10,7 +10,7 @@
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
 
-<title>Mastrinder - Casdastro de Medicamento</title>
+<title>Mastrinder - Cadastro de Medicamento</title>
 </head>
 <body>
 <!-- container principal -->
