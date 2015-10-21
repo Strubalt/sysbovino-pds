@@ -1,1 +1,8 @@
 /build/
+# Eclipse Project
+.settings/
+.classpath
+.project
+
+# Mac Files
+.DS_Store

@@ -5,23 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-	<!-- bootstrap -->
+<!-- bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
 
-<title>Mastrinder - Cadastro de Medicamento</title>
+<title>Mastrinder - Cadastro de Lote</title>
 </head>
 <body>
+
 <!-- container principal -->
 <div class="container">
-	 <div class="page-header"><h1>Cadastro de novo medicamento</h1></div> 
+	 <div class="page-header"><h1>Cadastro de novo Lote</h1></div> 
 	<div class="col-md-6 col-sm-6">
 	  <form class="form-horizontal" role="form">
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="codigo">Nome:</label>
 	      <div class="col-sm-10">
-	        <input type="nomeMedicamento" class="form-control" id="nomeMedicamento" placeholder="potenay">
+	        <input type="nomeLote" class="form-control" id="idLote" placeholder="potenay">
 	      </div>
 	    </div>
 	  
