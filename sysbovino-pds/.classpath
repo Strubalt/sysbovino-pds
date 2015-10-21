@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="WebContent/META-INF"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_60">
+	<classpathentry exported="true" kind="lib" path="antlr-2.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="dom4j-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="geronimo-jta_1.1_spec-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-commons-annotations-5.0.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-core-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="jandex-1.2.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="javassist-3.18.1-GA.jar"/>
+	<classpathentry exported="true" kind="lib" path="jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-entitymanager-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-envers-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-java8-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernate-jpamodelgen-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_60">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/hibernate-commons-annotations-5.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/hibernate-core-5.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/hibernate-entitymanager-5.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/javassist-3.18.1-GA.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/jboss-logging-3.3.0.Final.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/lucene-core-4.10.4.jar"/>
-	<classpathentry kind="lib" path="WebContent/META-INF/Lib/xml-apis-1.3.03.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
