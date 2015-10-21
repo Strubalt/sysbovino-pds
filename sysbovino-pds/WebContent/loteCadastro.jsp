@@ -5,34 +5,51 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<!-- bootstrap -->
+	<!-- bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
 
-<title>Mastrinder - Cadastro de Lote</title>
 </head>
 <body>
+	<div class="container">
 
-<!-- container principal -->
-<div class="container">
-	 <div class="page-header"><h1>Cadastro de novo Lote</h1></div> 
-	<div class="col-md-6 col-sm-6">
-	  <form class="form-horizontal" role="form">
+		<div class="page-header"><h1>Cadastro de Lote</h1></div> 
+	 
+		<form class="form-horizontal" role="form"> 
+	
 	    <div class="form-group">
-	      <label class="control-label col-sm-2" for="codigo">Nome:</label>
+	      <label class="control-label col-sm-2" for="codigo">Código:</label>
 	      <div class="col-sm-10">
-	        <input type="nomeLote" class="form-control" id="idLote" placeholder="potenay">
+	        <input type="text" class="form-control" id="idLote" placeholder="01">
 	      </div>
 	    </div>
 	  
-	    <div class="form-group">
-	      <label class="control-label col-sm-2" for="pwd">Lote:</label>
-	      <div class="col-sm-10">          
-	        <input type="lote" class="form-control" id="lote" placeholder="Lote:DWWE33242">
+	    <div class="form-group">	
+	      <label class="control-label col-sm-2" for="descricao">Descrição:</label> <!-- tag <label> é apenas um espaço para colocar o nome do campo -->
+	      <div class="col-sm-10">
+	        <textarea class="form-control" rows="5" id="descricao" placeholder="teste"></textarea> <!-- textarea campo maior para mais informações-->
 	      </div>
 	    </div>
-	    
+	  
+	  <div class="form-group">
+	      <label class="control-label col-sm-2" for="data">Data:</label>
+	      <div class="col-sm-10">
+	        <input type="text" class="form-control" id="data" placeholder="21/10/2015">
+	      </div>
+	    </div>
+	  
+	   <div class="form-group">
+      <label class="control-label col-sm-2" for="fase">Fase:</label>
+      <div class="col-sm-10">
+        <select id="" class="form-control"> <!-- select -->
+          <option>option 1</option> 	<!-- option são exeplos, vão ser populados confirmoações do BD -->
+          <option>option 2</option>
+          <option>option 4</option>
+        </select>
+      </div>
+    </div>
+	      
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
 	        <button type="submit" class="btn btn-default">Salvar</button>
