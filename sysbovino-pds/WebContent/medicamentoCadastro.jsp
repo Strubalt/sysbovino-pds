@@ -15,7 +15,7 @@
 <body>
 <!-- container principal -->
 <div class="container">
-	 <div class="page-header"><h1>Cadastro de novo medicamento</h1></div> 
+	 <div class="page-header"><h1>Cadastro de Medicamento</h1></div> 
 	<div class="col-md-6 col-sm-6">
 	  <form class="form-horizontal" role="form">
 	    <div class="form-group">

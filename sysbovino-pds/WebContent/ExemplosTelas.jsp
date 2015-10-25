@@ -10,7 +10,6 @@
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
 
-
 </head>
 <body>
 	<div class="container">	<!-- sempre vai ter o container em todas as paginas -->
