@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="sessionFactoryProjetoSistemas">
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">admin</property>
-        <property name="hibernate.connection.username">admin</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-    </session-factory>
+ <session-factory name="sessionFactoryProjetoSistemas">
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">admin</property>
+  <property name="hibernate.connection.username">admin</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projetoSistemas</property>
+  <property name="hbm2dll.auto">update</property>
+  <!-- Enable Hibernate's automatic session context management -->
+  <property name="current_session_context_class">thread</property>
+  <!-- Drop and re-create the database schema on startup -->
+  <property name="hbm2ddl.auto">update</property>
+  <property name="hibernate.show_sql">true</property>
+  
+   <mapping class="com.sysbovino.entidades.Cidade"/>
+  <mapping class="com.sysbovino.entidades.Medicamento"/>
+  <mapping class="com.sysbovino.entidades.Veterinario"/>
+  <mapping class="com.sysbovino.entidades.Raca"/>
+  <mapping class="com.sysbovino.entidades.Cidade"/>
+
+ </session-factory>
 </hibernate-configuration>

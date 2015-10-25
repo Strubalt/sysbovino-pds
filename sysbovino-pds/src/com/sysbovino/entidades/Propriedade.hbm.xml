@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/10/2015 15:16:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.sysbovino.entidades.Propriedade" table="PROPRIEDADE">
+        <id name="codCidade" type="int">
+            <column name="CODCIDADE" />
+            <generator class="assigned" />
+        </id>
+        <property name="codPropriedade" type="java.lang.Integer">
+            <column name="CODPROPRIEDADE" />
+        </property>
+        <property name="codPessoa" type="int">
+            <column name="CODPESSOA" />
+        </property>
+        <property name="numIncra" type="java.lang.Integer">
+            <column name="NUMINCRA" />
+        </property>
+        <property name="numRegistroCartorio" type="java.lang.Integer">
+            <column name="NUMREGISTROCARTORIO" />
+        </property>
+        <property name="haTotal" type="java.lang.Integer">
+            <column name="HATOTAL" />
+        </property>
+        <property name="capacidadeAnimais" type="java.lang.Integer">
+            <column name="CAPACIDADEANIMAIS" />
+        </property>
+        <property name="codCidadeCartorio" type="java.lang.Integer">
+            <column name="CODCIDADECARTORIO" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/10/2015 15:16:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.sysbovino.entidades.LoteAlimentacao" table="LOTEALIMENTACAO">
+        <id name="id" type="com.sysbovino.entidades.LoteAlimentacaoId">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="codAlimentacao" type="int">
+            <column name="CODALIMENTACAO" />
+        </property>
+        <property name="dataInicio" type="java.util.Date">
+            <column name="DATAINICIO" />
+        </property>
+        <property name="dataPrevistoFim" type="java.util.Date">
+            <column name="DATAPREVISTOFIM" />
+        </property>
+        <property name="dataFim" type="java.util.Date">
+            <column name="DATAFIM" />
+        </property>
+        <property name="pesoInicialLote" type="java.math.BigDecimal">
+            <column name="PESOINICIALLOTE" />
+        </property>
+        <property name="pesoFinalLote" type="java.math.BigDecimal">
+            <column name="PESOFINALLOTE" />
+        </property>
+        <property name="flagAtivo" type="char">
+            <column name="FLAGATIVO" />
+        </property>
+    </class>
+</hibernate-mapping>

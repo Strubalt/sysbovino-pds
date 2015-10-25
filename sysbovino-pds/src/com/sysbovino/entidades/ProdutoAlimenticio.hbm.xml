@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/10/2015 15:16:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.sysbovino.entidades.ProdutoAlimenticio" table="PRODUTOALIMENTICIO">
+        <id name="codProduto" type="java.lang.Integer">
+            <column name="CODPRODUTO" />
+            <generator class="assigned" />
+        </id>
+        <property name="codPessoa" type="int">
+            <column name="CODPESSOA" />
+        </property>
+        <property name="nomeProduto" type="java.lang.String">
+            <column name="NOMEPRODUTO" />
+        </property>
+        <property name="observacaoComposicao" type="java.lang.String">
+            <column name="OBSERVACAOCOMPOSICAO" />
+        </property>
+        <property name="dataValidade" type="java.util.Date">
+            <column name="DATAVALIDADE" />
+        </property>
+    </class>
+</hibernate-mapping>

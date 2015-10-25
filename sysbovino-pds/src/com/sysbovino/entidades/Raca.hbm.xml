@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/10/2015 15:16:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.sysbovino.entidades.Raca" table="RACA">
+        <id name="codRaca" type="java.lang.Integer">
+            <column name="CODRACA" />
+            <generator class="assigned" />
+        </id>
+        <property name="codPais" type="int">
+            <column name="CODPAIS" />
+        </property>
+        <property name="nomeRaca" type="java.lang.String">
+            <column name="NOMERACA" />
+        </property>
+        <property name="observacao" type="java.lang.String">
+            <column name="OBSERVACAO" />
+        </property>
+    </class>
+</hibernate-mapping>

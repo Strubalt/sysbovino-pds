@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/10/2015 15:16:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.sysbovino.entidades.Gado" table="GADO">
+        <id name="codGado" type="java.lang.Integer">
+            <column name="CODGADO" />
+            <generator class="assigned" />
+        </id>
+        <property name="codRaca" type="int">
+            <column name="CODRACA" />
+        </property>
+        <property name="dataNascimento" type="java.util.Date">
+            <column name="DATANASCIMENTO" />
+        </property>
+        <property name="localNascimento" type="java.lang.String">
+            <column name="LOCALNASCIMENTO" />
+        </property>
+        <property name="observacao" type="java.lang.String">
+            <column name="OBSERVACAO" />
+        </property>
+        <property name="codSisbov" type="java.lang.Integer">
+            <column name="CODSISBOV" />
+        </property>
+        <property name="racaPai" type="java.lang.Integer">
+            <column name="RACAPAI" />
+        </property>
+        <property name="racaMae" type="java.lang.Integer">
+            <column name="RACAMAE" />
+        </property>
+        <property name="flagProcedencia" type="java.lang.Character">
+            <column name="FLAGPROCEDENCIA" />
+        </property>
+        <property name="flagStatus" type="java.lang.Character">
+            <column name="FLAGSTATUS" />
+        </property>
+        <property name="sexualidade" type="java.lang.Character">
+            <column name="SEXUALIDADE" />
+        </property>
+    </class>
+</hibernate-mapping>

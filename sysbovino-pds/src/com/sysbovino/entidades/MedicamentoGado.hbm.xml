@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/10/2015 15:16:05 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.sysbovino.entidades.MedicamentoGado" table="MEDICAMENTOGADO">
+        <id name="codHistoricoMedicacao" type="java.lang.Integer">
+            <column name="CODHISTORICOMEDICACAO" />
+            <generator class="assigned" />
+        </id>
+        <property name="codGado" type="int">
+            <column name="CODGADO" />
+        </property>
+        <property name="codPessoa" type="int">
+            <column name="CODPESSOA" />
+        </property>
+        <property name="codMedicamento" type="int">
+            <column name="CODMEDICAMENTO" />
+        </property>
+        <property name="loteMedicamento" type="java.lang.String">
+            <column name="LOTEMEDICAMENTO" />
+        </property>
+        <property name="dataMedicacao" type="java.util.Date">
+            <column name="DATAMEDICACAO" />
+        </property>
+        <property name="observacao" type="java.lang.String">
+            <column name="OBSERVACAO" />
+        </property>
+        <property name="dosagemMg" type="java.math.BigDecimal">
+            <column name="DOSAGEMMG" />
+        </property>
+    </class>
+</hibernate-mapping>
