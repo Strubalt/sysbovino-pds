@@ -16,10 +16,31 @@
   <property name="hibernate.show_sql">true</property>
   
    <mapping class="com.sysbovino.entidades.Cidade"/>
-  <mapping class="com.sysbovino.entidades.Medicamento"/>
-  <mapping class="com.sysbovino.entidades.Veterinario"/>
-  <mapping class="com.sysbovino.entidades.Raca"/>
-  <mapping class="com.sysbovino.entidades.Cidade"/>
-
+   <mapping class="com.sysbovino.entidades.Fase"/>
+   <mapping class="com.sysbovino.entidades.FaseLote"/>
+   <mapping class="com.sysbovino.entidades.FaseLoteId"/>
+   <mapping class="com.sysbovino.entidades.Gado"/>
+   <mapping class="com.sysbovino.entidades.GadoPesagem"/>
+   <mapping class="com.sysbovino.entidades.GadoPesagemId"/>
+   <mapping class="com.sysbovino.entidades.Lote"/>
+   <mapping class="com.sysbovino.entidades.LoteAlimentacao"/>
+   <mapping class="com.sysbovino.entidades.LoteAlimentacaoId"/>
+   <mapping class="com.sysbovino.entidades.LoteGado"/>
+   <mapping class="com.sysbovino.entidades.LoteGadoId"/>
+   <mapping class="com.sysbovino.entidades.Medicamento"/>
+   <mapping class="com.sysbovino.entidades.MedicamentoGado"/>
+   <mapping class="com.sysbovino.entidades.Pais"/>
+   <mapping class="com.sysbovino.entidades.Pecuarista"/>
+   <mapping class="com.sysbovino.entidades.Pessoa"/>
+   <mapping class="com.sysbovino.entidades.PessoaFisica"/>
+   <mapping class="com.sysbovino.entidades.PessoaJuridica"/>
+   <mapping class="com.sysbovino.entidades.ProdutoAlimenticio"/>
+   <mapping class="com.sysbovino.entidades.Propriedade"/>
+   <mapping class="com.sysbovino.entidades.Raca"/>
+   <mapping class="com.sysbovino.entidades.TipoAlimentacaoProduto"/>
+   <mapping class="com.sysbovino.entidades.TipoAlimentacaoProdutoId"/>
+   <mapping class="com.sysbovino.entidades.UnidadeFederativa"/>
+   <mapping class="com.sysbovino.entidades.Veterinario"/>
+   
  </session-factory>
 </hibernate-configuration>
