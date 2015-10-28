@@ -10,25 +10,25 @@
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
 
-<title>Mastrinder - Cadastro de Medicamento</title>
 </head>
 <body>
-<!-- container principal -->
-<div class="container">
-	 <div class="page-header"><h1>Cadastro de Medicamento</h1></div> 
-	<div class="col-md-6 col-sm-6">
-	  <form class="form-horizontal" role="form">
-	    <div class="form-group">
-	      <label class="control-label col-sm-2" for="codigo">Nome:</label>
+	<div class="container">
+	
+		 <div class="page-header"><h1>Cadastro de Medicamento</h1></div> 
+		 
+		 <form class="form-horizontal" role="form">
+		 
+		 <div class="form-group">
+		 <label class="control-label col-sm-2" for="codigo">Nome:</label>
 	      <div class="col-sm-10">
-	        <input type="nomeMedicamento" class="form-control" id="nomeMedicamento" placeholder="potenay">
+	        <input type="text" class="form-control" id="Medicamento" placeholder="potenay">
 	      </div>
 	    </div>
 	  
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="pwd">Lote:</label>
 	      <div class="col-sm-10">          
-	        <input type="lote" class="form-control" id="lote" placeholder="Lote:DWWE33242">
+	        <input type="text" class="form-control" id="lote" placeholder="DWWE33242">
 	      </div>
 	    </div>
 	    
