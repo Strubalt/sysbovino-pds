@@ -35,7 +35,13 @@
 	    <div class="form-group">
 	      <label class="control-label col-sm-4" for="pwd">Código do Produto:</label>
 	      <div class="col-sm-5">          
-	        <input type="codProd" class="form-control" id="codProd" placeholder="">
+	        <select id="" class="form-control"> <!-- select -->
+          		<option>option 1</option> 	<!-- option são exemplos, vão ser populados confirmações do BD -->
+          		<option>option 2</option>
+          		<option>option 3</option>
+          		<option>option 4</option>
+          		<option>option 5</option>
+        	</select>
 	      </div>
 	    </div>
 	  
