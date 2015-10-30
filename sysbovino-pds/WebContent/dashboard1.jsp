@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	
+	<base target="destino" />  
+	
 <title>Mastrinder - Sitema bovino</title>
 </head>
 <body>
@@ -26,22 +29,23 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			      </button>
-			      <a class="navbar-brand" href="#"><img alt="Mastrinder" src="img/mastrinder.png" style="height: 50px; width: 50px; margin-top: -12px;"> </a>
+			      <a class="navbar-brand" href="dashboard-resumo.jsp"><img alt="Mastrinder" src="img/mastrinder.png" style="height: 50px; width: 50px; margin-top: -12px;"> </a>
 			    </div>	
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			       
 			      <ul class="nav navbar-nav navbar-center">
-			        <li><a href="#" class="active">Lote</a></li>
+			        <li><a href="loteDashboard.jsp" class="active">Lote</a></li>
 			        <li><a href="#">Animal</a></li>
 			        <li><a href="#">Saúde</a></li>
+			        <li><a href="ExemplosTelas.jsp">Exemplo</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
 			</nav>
 	  	</div>
 	  	<div class="row">
-				<iframe class="col-lg-12" src="dashboard-resumo.jsp" style=" border: 0px; height: 500px;">
+				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino" style=" border: 0px; height: 500px;">
 				</iframe>
 			</div>
 	  

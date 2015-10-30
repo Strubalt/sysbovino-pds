@@ -53,7 +53,7 @@
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
 	        <button type="submit" class="btn btn-default">Salvar</button>
-	        <button type="button" class="btn btn-danger">Cancelar</button>
+	        <button type="button"  class="btn btn-danger" onclick="location.href='loteDashboard.jsp';">Cancelar</button>
 	      </div>
 	    </div>
 	  </form>
