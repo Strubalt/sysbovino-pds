@@ -14,12 +14,12 @@
 <body>
 
 <div class="container">
-	<div class="page-header"><h1>Lote</h1></div>
+	<div class="page-header"><h1>Bovino</h1></div>
 	
 	<div class="col-sm-12">
 		<div class="col-sm-3">
 			<div class="list-group">
-			  <a href="loteCadastro.jsp" class="list-group-item">Novo Lote</a>
+			  <a href="loteCadastro.jsp" class="list-group-item">Novo Bovino</a>
 			  <a href="#" class="list-group-item">Alterar</a>
 			  <a href="#" class="list-group-item">Excluir</a>
 			</div>
@@ -29,30 +29,30 @@
 			<table class="table table-striped">
 		    <thead>
 		      <tr>
+		        <th>Codigo</th>
+		        <th>Idade</th>
 		        <th>Lote</th>
-		        <th>Alimento</th>
-		        <th>Qntde Bovinos</th>
-		        <th>Fase</th>
+		        <th>Raça</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		      <tr>
-		        <td>Lote 001</td>
-		        <td>Silagem composição 1</td>
-		        <td>55</td>
-		        <td>Engorda</td>
+		        <td>000</td>
+		        <td>2 anos</td>
+		        <td>L000</td>
+		        <td>Angus</td>
 		      </tr>
 		      <tr>
-		        <td>Lote 025</td>
-		        <td>Silagem composiçao 3</td>
-		        <td>55</td>
-		        <td>Crescimento</td>
+		         <td>000</td>
+		        <td>2 anos</td>
+		        <td>L000</td>
+		        <td>Angus</td>
 		      </tr>
 		      <tr>
-		        <td>Lote 57</td>
-		        <td>Ração + Silagem</td>
-		        <td>55</td>
-		        <td>Jejum</td>
+		         <td>000</td>
+		        <td>2 anos</td>
+		        <td>L000</td>
+		        <td>Angus</td>
 		      </tr>
 		    </tbody>
 		  </table>

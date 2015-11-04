@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lote</title>
+<title>Alimentação</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
@@ -14,12 +14,12 @@
 <body>
 
 <div class="container">
-	<div class="page-header"><h1>Lote</h1></div>
+	<div class="page-header"><h1>Alimentação</h1></div>
 	
 	<div class="col-sm-12">
 		<div class="col-sm-3">
 			<div class="list-group">
-			  <a href="loteCadastro.jsp" class="list-group-item">Novo Lote</a>
+			  <a href="tipoAlimCadastro.jsp" class="list-group-item">Nova Alimentação</a>
 			  <a href="#" class="list-group-item">Alterar</a>
 			  <a href="#" class="list-group-item">Excluir</a>
 			</div>
@@ -29,30 +29,26 @@
 			<table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th>Lote</th>
-		        <th>Alimento</th>
-		        <th>Qntde Bovinos</th>
-		        <th>Fase</th>
+		        <th>Codigo</th>
+		        <th>Nome</th>
+		        <th>Descrição</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		      <tr>
-		        <td>Lote 001</td>
+		        <td>001</td>
 		        <td>Silagem composição 1</td>
-		        <td>55</td>
-		        <td>Engorda</td>
+		        <td>Mulho, com 40 dias de fermentação</td>
 		      </tr>
 		      <tr>
-		        <td>Lote 025</td>
-		        <td>Silagem composiçao 3</td>
-		        <td>55</td>
-		        <td>Crescimento</td>
+		        <td>001</td>
+		        <td>Silagem composição 1</td>
+		        <td>Mulho, com 40 dias de fermentação</td>
 		      </tr>
 		      <tr>
-		        <td>Lote 57</td>
-		        <td>Ração + Silagem</td>
-		        <td>55</td>
-		        <td>Jejum</td>
+		        <td>001</td>
+		        <td>Silagem composição 1</td>
+		        <td>Mulho, com 40 dias de fermentação</td>
 		      </tr>
 		    </tbody>
 		  </table>

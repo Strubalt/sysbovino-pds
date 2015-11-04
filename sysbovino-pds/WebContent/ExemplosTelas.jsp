@@ -19,7 +19,7 @@
 		
 		//para conferir que as informações estão vindo como certo
 		var re = text + opcao + comentario
-		alert(re);
+		alert(text);
 		//também pode textar indivudualmente
 		//alert(text);
 		
