@@ -10,6 +10,40 @@
   	<script src="js/bootstrap.min.js"></script>
 
 <title>Mastrinder - Cadastro de Alimento</title>
+
+<script type="text/javascript">
+	function enviar(){
+		//Estou pegando as informaçoes do formulário
+		var codigo = $("#codigo").val();//document.getElementById("codigo").value;
+		var fornecedora = $("#fornecedora").val();//document.getElementById("fornecedora").value;
+		var nomeProduto = $("#nomeProduto").val(); //document.getElementById("nomeProduto").value;
+		var composicao = $("#composicao").val(); //document.getElementById("composicao").value;
+		
+		
+		//para conferir que as informações estão vindo como certo
+		//var re = codigo + lote + raca
+		alert(codigo);
+		//também pode textar indivudualmente
+		//alert(text);
+		
+		//vamos criar a ajax para enviar e receber os dados do controller
+		$.ajax({
+			//tipo de envio vai ser post
+			type:"POST",
+			//os dados que vamos enviar sendo o nome da variavel aqui e o nome que vai ser chamado pelo controller
+			data:{codigo:codigo,  fornecedora:fornecedora, nomeProduto:nomeProduto, composicao:composicao},
+			//dataType: "json",
+			//endereco do controller
+			url:"exemploController",
+			//sucess indica que tudo deu certo e recebou um retorno.
+			success: function(result){
+				alert(result.length);
+				$("#resultado").html(result);
+			}
+		});
+		
+	}
+</script>
 </head>
 <body>
 
@@ -22,20 +56,20 @@
 	      <div class="form-group">
 	      <label class="control-label col-sm-2" for="pwd"> Código:</label>
 	      <div class="col-sm-8">          
-	        <input type="codigo" class="form-control" id="codigo" placeholder="">
+	        <input type="text" class="form-control" id="codigo" placeholder="">
 	      </div>
 	      </div>
 	      <br/>
 	      <label class="control-label col-sm-2" for="codigo">Fornecedora: </label>
 	      <div class="col-sm-8">
-	        <input type="fornecedora" class="form-control" id="fornecedora" placeholder="">
+	        <input type="text" class="form-control" id="fornecedora" placeholder="">
 	      </div>
 	    </div>
 	  <br/>
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="pwd">Nome do Produto:</label>
 	      <div class="col-sm-8">          
-	        <input type="nomeProd" class="form-control" id="nomeProd" placeholder="">
+	        <input type="text" class="form-control" id="nomeProduto" placeholder="">
 	      </div>
 	    </div>
 	    <br/>
@@ -48,7 +82,7 @@
 	    <br/>
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default">Salvar</button>
+	        <button type="submit" class="btn btn-default"; onclick="enviar()"; return false;>Salvar</button>
 	        <button type="button" class="btn btn-danger">Cancelar</button>
 	      </div>
 	    </div>

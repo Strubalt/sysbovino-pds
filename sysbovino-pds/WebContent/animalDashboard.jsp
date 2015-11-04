@@ -19,7 +19,7 @@
 	<div class="col-sm-12">
 		<div class="col-sm-3">
 			<div class="list-group">
-			  <a href="loteCadastro.jsp" class="list-group-item">Novo Bovino</a>
+			  <a href="animalCadastro.jsp" class="list-group-item">Novo Bovino</a>
 			  <a href="#" class="list-group-item">Alterar</a>
 			  <a href="#" class="list-group-item">Excluir</a>
 			</div>
