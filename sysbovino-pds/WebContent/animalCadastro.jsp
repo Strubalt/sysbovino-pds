@@ -52,7 +52,7 @@
 
 <!-- container principal -->
 <div class="container">
-	 <div class="page-header"><h1>Cadastro de Animal</h1></div> 
+	<div class="page-header"><h1>Cadastro de Animal</h1></div> 
 	<div class="col-md-6 col-sm-6">
 	  <form class="form-horizontal" role="form">
 	    <div class="form-group">
@@ -73,11 +73,10 @@
           		<option>option 5</option>
         	</select>
 	      </div>
-	      <br/>
-	      <br/>
+	      </div>
 	      <div class="form-group">
 	      <label class="control-label col-sm-4" for="pwd">Raça:</label>
-	      <div class="col-sm-5">          
+	        <div class="col-sm-5">          
 	        <select id="raca" class="form-control"> <!-- select -->
           		<option>option 1</option> 	<!-- option são exemplos, vão ser populados confirmações do BD -->
           		<option>option 2</option>
@@ -85,18 +84,18 @@
           		<option>option 4</option>
           		<option>option 5</option>
         	</select>
+	        </div>
 	      </div>
-	    </div>
-	    </div>
+	      <div class="form-group">
 	      <label class="control-label col-sm-4" for="codigo">Peso:</label>
-	      <div class="col-sm-5">
-	        <input type="peso" class="form-control" id="peso" placeholder="">
+	        <div class="col-sm-5">
+	        <input type="text" class="form-control" id="peso" placeholder="">
+	        </div>
 	      </div>
-	    </div>
 		<div class="form-group">
 	      <label class="control-label col-sm-4" for="pwd">Data de Pesagem: </label>
 	      <div class="col-sm-5">          
-	        <input type="dataPesagem" class="form-control" id="dataPesagem" placeholder="">
+	        <input type="text" class="form-control" id="dataPesagem" placeholder="">
 	      </div>
 	    </div>
 	    <div class="form-group">
@@ -130,7 +129,6 @@
 	        <textarea class="form-control" rows="4" id="observacoes"></textarea>
 	      </div>
 	    </div>
-	    <br/>
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
 	        <button type="submit" class="btn btn-default"; onclick="enviar()"; return false;>Salvar</button>
