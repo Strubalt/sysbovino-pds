@@ -10,6 +10,6 @@ public class GadoDAO extends GenericDAO<Gado> {
 	
 	 public GadoDAO(Session sessao, Class<?> classe) {  
 	        super(sessao, classe);  
-	    }  
+	 }  
 	 
 }

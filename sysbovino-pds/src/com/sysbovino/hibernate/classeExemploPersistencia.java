@@ -36,7 +36,7 @@ public class classeExemploPersistencia {
 		
 
 		//salvar entidade;
-		// dao.Salvar(medicamento);
+		 dao.Salvar(medicamento);
 		
 		
 		//updade entidade;
