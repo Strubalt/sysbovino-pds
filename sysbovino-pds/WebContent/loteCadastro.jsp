@@ -9,7 +9,39 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
 
+function enviar(){
+	//Estou pegando as informaçoes do formulário
+	var codLote = $("#idLote").val();//document.getElementById("identificacaoQualquer").value;
+	var descricaoLote = $("#descricao").val();//document.getElementById("opcao").value;
+	var dataCricao = $("#data").val(); //document.getElementById("comment").value;
+	var codPropriedade = 1;
+	var dataCricao = $("#faseLote").val();
+	
+	//para conferir que as informações estão vindo como certo
+	
+	alert(descricaoLote);
+	//também pode textar indivudualmente
+	//alert(text);
+	
+	//vamos criar a ajax para enviar e receber os dados do controller
+	$.ajax({
+		//tipo de envio vai ser post
+		type:"POST",
+		//os dados que vamos enviar sendo o nome da variavel aqui e o nome que vai ser chamado pelo controller
+		data:{codLote:codLote,  descricaoLote:descricaoLote, dataCricao:dataCricao, codPropriedade:codPropriedade, dataCricao:dataCricao},
+		//dataType: "json",
+		//endereco do controller
+		url:"LoteController",
+		//sucess indica que tudo deu certo e recebou um retorno.
+		success: function(result){
+			alert(result.length);
+			$("#resultado").html(result);
+		}
+	});
+}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -33,16 +65,16 @@
 	    </div>
 	  
 	  <div class="form-group">
-	      <label class="control-label col-sm-2" for="data">Data:</label>
+	      <label class="control-label col-sm-2" for="data">Data Criação:</label>
 	      <div class="col-sm-10">
-	        <input type="text" class="form-control" id="data" placeholder="21/10/2015">
+	        <input type="text" class="form-control" id="dataCriacao" placeholder="21/10/2015">
 	      </div>
 	    </div>
 	  
 	   <div class="form-group">
       <label class="control-label col-sm-2" for="fase">Fase:</label>
       <div class="col-sm-10">
-        <select id="" class="form-control"> <!-- select -->
+        <select id="faseLote" class="form-control"> <!-- select -->
           <option>option 1</option> 	<!-- option são exeplos, vão ser populados confirmoações do BD -->
           <option>option 2</option>
           <option>option 4</option>
@@ -52,7 +84,7 @@
 	      
 	    <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default">Salvar</button>
+	        <button type="submit" class="btn btn-default"; onclick="enviar()"; return false;">Salvar</button>
 	        <button type="button"  class="btn btn-danger" onclick="location.href='loteDashboard.jsp';">Cancelar</button>
 	      </div>
 	    </div>

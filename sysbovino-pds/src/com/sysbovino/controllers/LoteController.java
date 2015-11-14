@@ -48,17 +48,18 @@ public class LoteController extends HttpServlet {
 		
 		//recebe os os valores da tela
 		Integer codLote = Integer.parseInt(request.getParameter("codLote"));
-		Integer codPropriedade = Integer.parseInt(request.getParameter("codPropriedade"));
-		String comentario = request.getParameter("descricaoLote");
+		int codPropriedade = Integer.parseInt(request.getParameter("codPropriedade"));
+		String comentario =  request.getParameter("descricaoLote");
 		String dataCriacao = request.getParameter("dataCriacao");
 		//String dataEncerramento = request.getParameter("dataEnc");
 		
-		System.out.println(codLote);
+		System.out.println("Chegou: "+comentario);
 		
 		Date date = new Date();
 		
 		Lote lote = new Lote();
 		lote.setCodLote(codLote);
+		lote.setDescricaoLote("Teste de lote");
 		lote.setCodPropriedade(codPropriedade);
 		lote.setDataCriacao(date);
 		lote.setDataEncerramento(date);
