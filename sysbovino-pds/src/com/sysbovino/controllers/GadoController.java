@@ -1,7 +1,7 @@
 package com.sysbovino.controllers;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +14,7 @@ import com.sysbovino.daos.MedicamentoDAO;
 import com.sysbovino.entidades.Gado;
 import com.sysbovino.hibernate.HibernateUtil;
 
-@WebServlet("/exemploController")
+@WebServlet("/GadoController")
 public class GadoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -39,17 +39,20 @@ public class GadoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/plain");
+		
+		Date data = new Date();
 		//codigo,  lote, raca, peso, dataPesagem, racaPai, racaMae, observacoes
 		//recebe os os valores da tela
+		//System.out.println(request.getParameter("procedencia").charAt(0));
 		int cod_raca = Integer.parseInt(request.getParameter("raca"));
-		Date data_nascimento = Date.valueOf(request.getParameter("dataNascimento"));
+		Date data_nascimento =  data; //request.getParameter("dataNascimento");
 		int raca_pai = Integer.parseInt(request.getParameter("racaPai"));
 		int raca_mae = Integer.parseInt(request.getParameter("racaMae"));
 		char flag_status = 'B';
-		char flag_procedencia = request.getParameter("procedencia").charAt(0);
-		char sexualidade = request.getParameter("sexo").charAt(0);
+		char flag_procedencia = 'S';//request.getParameter("procedencia").charAt(0);
+		char sexualidade = 'M'; //request.getParameter("sexo").charAt(0);
 		String observacao = request.getParameter("observacao");
-		int cod_sisbov = Integer.parseInt(request.getParameter("sisbov"));
+		int cod_sisbov = 1234;//Integer.parseInt(request.getParameter("sisbov"));
 		
 		
 		//mostra no console o resultado
@@ -72,7 +75,8 @@ public class GadoController extends HttpServlet {
 		//nesse espeço vai ser tratado a logica e enviado para as classes de inserção
 		//após informado o retorno a tela
 		//retorno será tanto uma confirmação de inserção como uma lista de bovinos ou lote
-		
+	}
+	public void main(String[] args){
 		
 	}
 }
