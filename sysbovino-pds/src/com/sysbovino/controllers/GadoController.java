@@ -45,7 +45,7 @@ public class GadoController extends HttpServlet {
 		Date data_nascimento = Date.valueOf(request.getParameter("dataNascimento"));
 		int raca_pai = Integer.parseInt(request.getParameter("racaPai"));
 		int raca_mae = Integer.parseInt(request.getParameter("racaMae"));
-		char flag_status = 'A';
+		char flag_status = 'B';
 		char flag_procedencia = request.getParameter("procedencia").charAt(0);
 		char sexualidade = request.getParameter("sexo").charAt(0);
 		String observacao = request.getParameter("observacao");
