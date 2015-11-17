@@ -22,7 +22,7 @@
 		
 		//para conferir que as informações estão vindo como certo
 		//var re = codigo + lote + raca
-		alert(codigo);
+		//alert(codigo);
 		//também pode textar indivudualmente
 		//alert(text);
 		
@@ -34,7 +34,7 @@
 			data:{codigo:codigo,  fornecedora:fornecedora, nomeProduto:nomeProduto, composicao:composicao},
 			//dataType: "json",
 			//endereco do controller
-			url:"exemploController",
+			url:"AlimentacaoController",
 			//sucess indica que tudo deu certo e recebou um retorno.
 			success: function(result){
 				alert(result.length);
