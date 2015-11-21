@@ -7,9 +7,14 @@
 
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  	
   	<script src="js/jquery.js"></script>
-  	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  	<script src="js/bootstrap-datetimepicker.min.js"></script>
   	<script src="js/purl.js"></script>
+  	
+  	
 <script type="text/javascript">
 var tipoFlag = "salvar";
 $(document).ready ( function(){
@@ -23,6 +28,12 @@ $(document).ready ( function(){
 		   carregaCompos(codLote);
 		   tipoFlag = "alterar";
 	   }
+	   
+        jQuery("#datePickerCriacao").datetimepicker({
+        	language: 'pt-BR',
+        	pickTime: false
+        });
+        populaPropriedade();
 	});
 
 function enviar(){
@@ -67,6 +78,24 @@ function carregaCompos(codLote){
 	});
 }
 
+function populaPropriedade(){
+	$.ajax({
+		type:"post",
+		data:{tipoFlag:"propriedade"},
+		dataType: "json",
+		url:"LoteController",
+		success: function(result){
+			var linhas = "";  
+		        for (var i = 0, length = result.length; i < length; i++) {  
+		            var re = result[i];  
+		            linhas += "<option>"+re.codPropriedade+" - "+re.nomePessoa+"("+re.numIncra+")</option>";  
+		                                                             
+				}      
+			var divCorpo = document.getElementById("propriedade");  
+			divCorpo.innerHTML=linhas;  
+		}
+	});
+}
 </script>
 </head>
 <body>
@@ -93,9 +122,13 @@ function carregaCompos(codLote){
 	  <div class="form-group">
 	      <label class="control-label col-sm-2" for="data">Data Criação:</label>
 	      <div class="col-sm-10">
-	        <input type="text" class="form-control" id="dataCriacao" placeholder="21/10/2015">
-	      </div>
-	    </div>
+		      <div class="input-append" id="datePickerCriacao">
+		       <span class="add-on">
+		        <input type="text" class="form-control col-sm-10" id="dataCriacao" placeholder="dd/mm/aaaa" data-format="dd-MM-yyyy"></input>
+			    </span>
+		      </div>
+		    </div>
+		  </div>
 	    
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="dataEnc">Data Encerramento:</label>
@@ -107,10 +140,8 @@ function carregaCompos(codLote){
 	   <div class="form-group">
       <label class="control-label col-sm-2" for="propriedade">Propriedade:</label>
       <div class="col-sm-10">
-        <select id="faseLote" class="form-control"> <!-- select -->
-          <option>option 1</option> 	<!-- option são exeplos, vão ser populados confirmoações do BD -->
-          <option>option 2</option>
-          <option>option 4</option>
+        <select id="propriedade" class="form-control"> <!-- select -->
+          
         </select>
       </div>
     </div>

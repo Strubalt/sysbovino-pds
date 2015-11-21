@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sysbovino.daos.LoteDAO;
+import com.sysbovino.daos.PessoaDAO;
+import com.sysbovino.daos.PropriedadeDAO;
 import com.sysbovino.entidades.Lote;
 import com.sysbovino.entidades.Pessoa;
+import com.sysbovino.entidades.Propriedade;
 import com.sysbovino.hibernate.HibernateUtil;
 
 import org.json.JSONArray;
@@ -57,26 +60,28 @@ public class LoteController extends HttpServlet {
 		String tipo = request.getParameter("tipoFlag");
 		JSONObject objJson = new JSONObject();
 		JSONArray objJsonArray = new JSONArray();
-		//para listar
+		
 		if(tipo.equals("listar")){
-			
 			objJsonArray = listaLote();
-			
 			out.print(objJsonArray);
+			
 		}else if(tipo.equals("dadosLote")){
 			Integer codLote = Integer.parseInt(request.getParameter("codLote"));
 			System.out.println(codLote);
 			objJson = dadosLote(codLote);
-			
 			out.print(objJson);
+			
 		}else if(tipo.equals("excluir")){
 			Integer codLote = Integer.parseInt(request.getParameter("codLote"));
 			Lote lote = new Lote();
 			lote.setCodLote(codLote);
-			
 			LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
 			loteDao.Apagar(lote);
 			out.print("Excluído");
+			
+		}else if(tipo.equals("propriedade")){
+			objJsonArray = listaPropriedades();
+			out.print(objJsonArray);
 		}else{
 				//recebe o resto dos paramentros
 				Integer codLote = Integer.parseInt(request.getParameter("codLote"));
@@ -151,6 +156,31 @@ public class LoteController extends HttpServlet {
 		objJsonLote.put("descricao", lot.getDescricaoLote());
 		
 		return objJsonLote;
+	}
+	
+	public JSONArray listaPropriedades(){
+		Propriedade objProp = new Propriedade();
+		JSONArray objJsonArray = new JSONArray();
+		PropriedadeDAO propDao = new PropriedadeDAO(HibernateUtil.getSessionFactory(), objProp.getClass());
+		List list = propDao.Listar();
+				for(int i=0;i<list.size();i++){
+					Propriedade prop = new Propriedade();
+					JSONObject objJsonLote = new JSONObject();
+					prop = (Propriedade) list.get(i);
+					
+					objJsonLote.put("codPropriedade", prop.getCodPropriedade());
+					
+					Pessoa objPessoa = new Pessoa();
+					PessoaDAO pessoaDao = new PessoaDAO(HibernateUtil.getSessionFactory(), objPessoa.getClass());
+						Pessoa pessoa = new Pessoa();
+						pessoa = pessoaDao.Carregar(prop.getCodPessoa());
+						objJsonLote.put("nomePessoa",pessoa.getNomePessoa());
+						
+					objJsonLote.put("numIncra", prop.getNumIncra());
+					objJsonArray.put(objJsonLote);
+				}
+		
+		return objJsonArray;
 	}
 	
 }
