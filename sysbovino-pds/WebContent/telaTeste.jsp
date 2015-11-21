@@ -1,46 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
-<head>
-<script type="text/javascript">
-	var qtdeCampos = 0;
-
-	function addCampos() {
-		var objPai = document.getElementById("campoPai");
-		//Criando o elemento DIV;
-		var objFilho = document.createElement("div");
-		//Definindo atributos ao objFilho:
-		objFilho.setAttribute("id", "filho" + qtdeCampos);
-
-		//Inserindo o elemento no pai:
-		objPai.appendChild(objFilho);
-		//Escrevendo algo no filho recém-criado:
-		document.getElementById("filho" + qtdeCampos).innerHTML = "<input type='text' id='campo"+qtdeCampos+"' name='campo[]' value='Campo com id: "+qtdeCampos+"'> <input type='button' onclick='removerCampo("
-				+ qtdeCampos + ")' value='Apagar campo'>";
-		qtdeCampos++;
-	}
-
-	function removerCampo(id) {
-		var objPai = document.getElementById("campoPai");
-		var objFilho = document.getElementById("filho" + id);
-
-		//Removendo o DIV com id específico do nó-pai:
-		var removido = objPai.removeChild(objFilho);
-	}
-</script>
-</head>
-<body>
-	<center>
-		<br> <br>Inserindo Campos em Formulário Dinâmico<br>
-		<Br>
-		<form name="form1">
-			<div id="campoPai"></div>
-			<input type="button" value="Adicionar campos" onclick="addCampos()">
-			<br>
-			<br>
-			<input type="submit" value="Enviar">
-		</form>
-	</center>
-</body>
-</html>
+  <head>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+  </head>
+  <body>
+    <div id="datetimepicker" class="input-append date">
+      <input type="text"></input>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      </span>
+    </div>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">  </script> 
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+    <script type="text/javascript">
+      $('#datetimepicker').datetimepicker({
+        format: 'dd/MM/yyyy hh:mm:ss',
+        language: 'pt-BR'
+      });
+    </script>
+  </body>
+<html>

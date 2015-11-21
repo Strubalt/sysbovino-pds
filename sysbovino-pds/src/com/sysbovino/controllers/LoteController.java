@@ -3,6 +3,9 @@ package com.sysbovino.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -72,6 +75,7 @@ public class LoteController extends HttpServlet {
 			out.print(objJson);
 			
 		}else if(tipo.equals("excluir")){
+			System.out.println("oii");
 			Integer codLote = Integer.parseInt(request.getParameter("codLote"));
 			Lote lote = new Lote();
 			lote.setCodLote(codLote);
@@ -87,20 +91,26 @@ public class LoteController extends HttpServlet {
 				Integer codLote = Integer.parseInt(request.getParameter("codLote"));
 				int codPropriedade = Integer.parseInt(request.getParameter("codPropriedade"));
 				String comentario =  request.getParameter("descricaoLote");
-				String dataCriacao = request.getParameter("dataCriacao");
-				String dataEncerramento = request.getParameter("dataEnc");
-				
-				System.out.println("Chegou: "+codLote);
-				
-				Date date = new Date();
-				
+				String dataCriacao = request.getParameter("dataCricao");
+				String dataEncerramento = request.getParameter("dataEncerramento");
 				Lote lote = new Lote();
-				lote.setCodLote(codLote);
-				lote.setDescricaoLote(comentario);
-				lote.setCodPropriedade(codPropriedade);
-				lote.setDataCriacao(date);
-				lote.setDataEncerramento(null);
-			
+				
+				DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+				try {
+					Date dateCricao = (Date)formatter.parse(dataCriacao);
+					Date dateEncerramento = (Date)formatter.parse(dataEncerramento);
+				
+					
+					lote.setCodLote(codLote);
+					lote.setDescricaoLote(comentario);
+					lote.setCodPropriedade(codPropriedade);
+					lote.setDataCriacao(dateCricao);
+					lote.setDataEncerramento(dateEncerramento);
+					
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
 			if(tipo.equals("salvar")){	

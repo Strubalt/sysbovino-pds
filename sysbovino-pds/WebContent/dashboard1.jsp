@@ -46,7 +46,7 @@
 			</nav>
 	  	</div>
 	  	<div class="row">
-				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino" style=" border: 0px; height: 500px;">
+				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino" style=" border: 0px; height: 700px;">
 				</iframe>
 			</div>
 	  

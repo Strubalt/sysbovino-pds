@@ -30,7 +30,7 @@
 	                                    "<th>"+re.dataCriacao+"</th>"+
 	                                    "<th>"+re.descricao+"</th>"+
 	                                    "<th><a href='loteCadastro.jsp?tipo=1&lote="+re.codLote+"'>Alterar</a></th>"+
-	                                    "<th><a href='#' onclick='excluirLote("+re.codLote+")'>Excluir</a></th>"+
+	                                    "<th><a href='javascript:void(0);' onclick='excluirLote("+re.codLote+")'>Excluir</a></th>"+
 	                               "</tr>";                                     
 	       }      
 	       var divCorpo = document.getElementById("linhaTabela");  
@@ -44,15 +44,16 @@
 	
 
 	function excluirLote(codLote){
+		
 		$.ajax({
 			type:"post",
 			data:{tipoFlag:"excluir",codLote:codLote},
-			dataType: "json",
 			url:"LoteController",
 			success: function(result){
 				alert(result);
 			}
 		});
+		location.reload(true);
 	}
 	</script>
 
@@ -66,8 +67,6 @@
 		<div class="col-sm-3">
 			<div class="list-group">
 			  <a href="loteCadastro.jsp" class="list-group-item">Novo Lote</a>
-			  <a href="#" class="list-group-item">Alterar</a>
-			  <a href="#" class="list-group-item">Excluir</a>
 			</div>
 		</div>
 		
@@ -77,7 +76,7 @@
 		    <thead>
 		      <tr>
 		        <th>Lote</th>
-		        <th>Alimento</th>
+		        <th>Propriedade</th>
 		        <th>Qntde Bovinos</th>
 		        <th>Descrição</th>
 		        <th></th>
