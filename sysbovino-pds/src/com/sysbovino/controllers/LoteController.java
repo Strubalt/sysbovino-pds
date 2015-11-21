@@ -1,7 +1,10 @@
 package com.sysbovino.controllers;
 
+
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import com.sysbovino.daos.LoteDAO;
 import com.sysbovino.entidades.Lote;
-import com.sysbovino.entidades.Medicamento;
+import com.sysbovino.entidades.Pessoa;
 import com.sysbovino.hibernate.HibernateUtil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Servlet implementation class LoteController
@@ -44,39 +48,109 @@ public class LoteController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/plain");
+		request.setCharacterEncoding("UTF-8");  
+        response.setCharacterEncoding("UTF-8");  
+        response.setContentType("application/json");   
+        PrintWriter out = response.getWriter();   
 		
-		//recebe os os valores da tela
-		Integer codLote = Integer.parseInt(request.getParameter("codLote"));
-		int codPropriedade = Integer.parseInt(request.getParameter("codPropriedade"));
-		String comentario =  request.getParameter("descricaoLote");
-		String dataCriacao = request.getParameter("dataCriacao");
-		//String dataEncerramento = request.getParameter("dataEnc");
-		
-		System.out.println("Chegou: "+comentario);
-		
-		Date date = new Date();
-		
+		//recebe tipo, assim identifica o deve ser feito
+		String tipo = request.getParameter("tipoFlag");
+		JSONObject objJson = new JSONObject();
+		JSONArray objJsonArray = new JSONArray();
+		//para listar
+		if(tipo.equals("listar")){
+			
+			objJsonArray = listaLote();
+			
+			out.print(objJsonArray);
+		}else if(tipo.equals("dadosLote")){
+			Integer codLote = Integer.parseInt(request.getParameter("codLote"));
+			System.out.println(codLote);
+			objJson = dadosLote(codLote);
+			
+			out.print(objJson);
+		}else if(tipo.equals("excluir")){
+			Integer codLote = Integer.parseInt(request.getParameter("codLote"));
+			Lote lote = new Lote();
+			lote.setCodLote(codLote);
+			
+			LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
+			loteDao.Apagar(lote);
+			out.print("Excluído");
+		}else{
+				//recebe o resto dos paramentros
+				Integer codLote = Integer.parseInt(request.getParameter("codLote"));
+				int codPropriedade = Integer.parseInt(request.getParameter("codPropriedade"));
+				String comentario =  request.getParameter("descricaoLote");
+				String dataCriacao = request.getParameter("dataCriacao");
+				String dataEncerramento = request.getParameter("dataEnc");
+				
+				System.out.println("Chegou: "+codLote);
+				
+				Date date = new Date();
+				
+				Lote lote = new Lote();
+				lote.setCodLote(codLote);
+				lote.setDescricaoLote(comentario);
+				lote.setCodPropriedade(codPropriedade);
+				lote.setDataCriacao(date);
+				lote.setDataEncerramento(null);
+			
+				
+				LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
+			if(tipo.equals("salvar")){	
+				loteDao.Salvar(lote);
+			}else if(tipo.equals("alterar")){
+				loteDao.Update(lote);
+			}
+			this.getServletContext().getRequestDispatcher("/WEB-INF/loteCadastro.jsp").forward(request, response);
+		}
+	}
+	
+	public JSONArray listaLote() {
+		System.out.println("chegou");
 		Lote lote = new Lote();
-		lote.setCodLote(codLote);
-		lote.setDescricaoLote("Teste de lote");
-		lote.setCodPropriedade(codPropriedade);
-		lote.setDataCriacao(date);
-		lote.setDataEncerramento(date);
+		JSONArray objJsonArray = new JSONArray();
 		
 		LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
-		
-		loteDao.Salvar(lote);
+		List list = loteDao.Listar();
+				for(int i=0;i<list.size();i++){
+					Lote lot = new Lote();
+					JSONObject objJsonLote = new JSONObject();
+					lot = (Lote) list.get(i);
+					lot.getCodLote();
+					objJsonLote.put("codLote", lot.getCodLote());
+					
+					lot.getCodPropriedade();//pegar o nome da propriedade
+					objJsonLote.put("codPropriedade", lot.getCodPropriedade());
+					lot.getDataCriacao();
+					objJsonLote.put("dataCriacao", lot.getDataCriacao());
+					lot.getDescricaoLote();
+					objJsonLote.put("descricao", lot.getDescricaoLote());
+					
+					objJsonArray.put(objJsonLote);
+				}
+			
+			return objJsonArray;
+			
+		//monatar o json e enviar para a tela 
 		
 	}
 	
-	public static void insert(Lote lote) throws Exception {
-
-		Session session = HibernateUtil.getSessionFactory();
-		Transaction tx = session.beginTransaction();
-		session.save(lote);
-		tx.commit();
-		session.close();
+	public JSONObject dadosLote(int codLote){
+		System.out.println("dadosLotes");
+		Lote lote = new Lote();
+		JSONObject objJsonLote = new JSONObject();
+		
+		LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
+		Lote lot = new Lote();
+		lot = loteDao.Carregar(codLote);
+		objJsonLote.put("codLote", lot.getCodLote());
+		objJsonLote.put("codPropriedade", lot.getCodPropriedade());
+		objJsonLote.put("dataCriacao", lot.getDataCriacao());
+		objJsonLote.put("descricao", lot.getDescricaoLote());
+		
+		return objJsonLote;
 	}
-
+	
 }

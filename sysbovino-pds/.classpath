@@ -31,6 +31,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
-	<classpathentry kind="lib" path="C:/apache-tomcat-8.0.28/commons-digester3-3.2-bin/commons-digester3-3.2/commons-digester3-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Desenvolvimento/workspace_unisc/sysbovino-pds/sysbovino-pds/WebContent/WEB-INF/commons-digester3-3.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

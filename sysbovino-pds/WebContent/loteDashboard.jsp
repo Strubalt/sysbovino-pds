@@ -5,10 +5,56 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lote</title>
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+	$(document).ready ( function(){
+	  listaLotes();
+	});
+	
+	function listaLotes(){
+		$.ajax({
+			type:"post",
+			data:{tipoFlag:"listar"},
+			url:"LoteController",
+			success: function(result){
+				var linhas = "";  
+		          for (var i = 0, length = result.length; i < length; i++) {  
+	                     var re = result[i];  
+	                     linhas += "<tr>"+  
+	                                    "<th>"+re.codLote+"</th>"+
+	                                    "<th>"+re.codPropriedade+"</th>"+
+	                                    "<th>"+re.dataCriacao+"</th>"+
+	                                    "<th>"+re.descricao+"</th>"+
+	                                    "<th><a href='loteCadastro.jsp?tipo=1&lote="+re.codLote+"'>Alterar</a></th>"+
+	                                    "<th><a href='#' onclick='excluirLote("+re.codLote+")'>Excluir</a></th>"+
+	                               "</tr>";                                     
+	       }      
+	       var divCorpo = document.getElementById("linhaTabela");  
+	       divCorpo.innerHTML=linhas;  
+	     },  
+	     error: function() {  
+	       alert("Ocorreu um erro na requisição ajax");  
+	     }  
+		});
+	}
+	
+
+	function excluirLote(codLote){
+		$.ajax({
+			type:"post",
+			data:{tipoFlag:"excluir",codLote:codLote},
+			dataType: "json",
+			url:"LoteController",
+			success: function(result){
+				alert(result);
+			}
+		});
+	}
+	</script>
 
 </head>
 <body>
@@ -25,35 +71,21 @@
 			</div>
 		</div>
 		
-		<div class="col-sm-9">
+		<div class="col-sm-9" id="listaLote">
+		
 			<table class="table table-striped">
 		    <thead>
 		      <tr>
 		        <th>Lote</th>
 		        <th>Alimento</th>
 		        <th>Qntde Bovinos</th>
-		        <th>Fase</th>
+		        <th>Descrição</th>
+		        <th></th>
+		        <th></th>
 		      </tr>
 		    </thead>
-		    <tbody>
-		      <tr>
-		        <td>Lote 001</td>
-		        <td>Silagem composição 1</td>
-		        <td>55</td>
-		        <td>Engorda</td>
-		      </tr>
-		      <tr>
-		        <td>Lote 025</td>
-		        <td>Silagem composiçao 3</td>
-		        <td>55</td>
-		        <td>Crescimento</td>
-		      </tr>
-		      <tr>
-		        <td>Lote 57</td>
-		        <td>Ração + Silagem</td>
-		        <td>55</td>
-		        <td>Jejum</td>
-		      </tr>
+		    <tbody id="linhaTabela">
+		  
 		    </tbody>
 		  </table>
 		</div>

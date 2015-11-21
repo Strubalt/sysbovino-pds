@@ -9,38 +9,64 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
   	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/purl.js"></script>
 <script type="text/javascript">
+var tipoFlag = "salvar";
+$(document).ready ( function(){
+	  //necessário purl.js
+	  //pega o parametros da url
+	   var url = $.url();
+	   var tipo = url.param('tipo');
+	   var codLote = url.param('lote');
+	   
+	   if(tipo != null){	
+		   carregaCompos(codLote);
+		   tipoFlag = "alterar";
+	   }
+	});
 
 function enviar(){
 	//Estou pegando as informaçoes do formulário
 	var codLote = $("#idLote").val();//document.getElementById("identificacaoQualquer").value;
 	var descricaoLote = $("#descricao").val();//document.getElementById("opcao").value;
-	var dataCricao = $("#data").val(); //document.getElementById("comment").value;
+	var dataCricao = $("#dataCriacao").val(); //document.getElementById("comment").value;
 	var codPropriedade = 1;
-	var dataCricao = $("#faseLote").val();
+	//var dataCricao = $("#propriedade").val();
 	
-	//para conferir que as informações estão vindo como certo
-	
-	alert(descricaoLote);
-	//também pode textar indivudualmente
-	//alert(text);
 	
 	//vamos criar a ajax para enviar e receber os dados do controller
 	$.ajax({
 		//tipo de envio vai ser post
 		type:"POST",
 		//os dados que vamos enviar sendo o nome da variavel aqui e o nome que vai ser chamado pelo controller
-		data:{codLote:codLote,  descricaoLote:descricaoLote, dataCricao:dataCricao, codPropriedade:codPropriedade, dataCricao:dataCricao},
+		data:{tipoFlag:tipoFlag, codLote:codLote,  descricaoLote:descricaoLote, dataCricao:dataCricao, codPropriedade:codPropriedade, dataCricao:dataCricao},
 		//dataType: "json",
 		//endereco do controller
 		url:"LoteController",
 		//sucess indica que tudo deu certo e recebou um retorno.
 		success: function(result){
-			alert(result.length);
-			$("#resultado").html(result);
+			
 		}
 	});
 }
+
+function carregaCompos(codLote){
+	
+	$.ajax({
+		type:"post",
+		data:{tipoFlag:"dadosLote",codLote:codLote},
+		dataType: "json",
+		url:"LoteController",
+		success: function(result){
+			$("#idLote").val(result.codLote);
+			$("#descricao").val(result.descricao);
+			$("#dataCriacao").val(result.dataCriacao);
+			$("#dataEncerramento").val(result.dataCriacao);
+			$("#propriedade").val(result.codPropriedade);
+		}
+	});
+}
+
 </script>
 </head>
 <body>
@@ -70,9 +96,16 @@ function enviar(){
 	        <input type="text" class="form-control" id="dataCriacao" placeholder="21/10/2015">
 	      </div>
 	    </div>
+	    
+	    <div class="form-group">
+	      <label class="control-label col-sm-2" for="dataEnc">Data Encerramento:</label>
+	      <div class="col-sm-10">
+	        <input type="text" class="form-control" id="dataEncerramento" placeholder="21/10/2015">
+	      </div>
+	    </div>
 	  
 	   <div class="form-group">
-      <label class="control-label col-sm-2" for="fase">Fase:</label>
+      <label class="control-label col-sm-2" for="propriedade">Propriedade:</label>
       <div class="col-sm-10">
         <select id="faseLote" class="form-control"> <!-- select -->
           <option>option 1</option> 	<!-- option são exeplos, vão ser populados confirmoações do BD -->
@@ -83,8 +116,8 @@ function enviar(){
     </div>
 	      
 	    <div class="form-group">        
-	      <div class="col-sm-offset-2 col-sm-10">
-	        <button type="submit" class="btn btn-default"; onclick="enviar()"; return false;">Salvar</button>
+	      <div class="col-sm-offset-2 col-sm-10" id="divBotoes">
+	        <input type="button" class="btn btn-default"; onclick="enviar()"; return false;" value="Salvar">
 	        <button type="button"  class="btn btn-danger" onclick="location.href='loteDashboard.jsp';">Cancelar</button>
 	      </div>
 	    </div>
