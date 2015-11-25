@@ -38,7 +38,7 @@
 			        <li><a href="loteDashboard.jsp" class="active">Lote</a></li>
 			        <li><a href="animalDashboard.jsp">Animal</a></li>
 			        <li><a href="alimentacaoDashboard.jsp">Alimentação</a></li>
-			        <li><a href="#">Saúde</a></li>
+			        <li><a href="medicamentoDashboard.jsp">Saúde</a></li>
 			        <li><a href="ExemplosTelas.jsp">Exemplo</a></li>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->

@@ -10,6 +10,58 @@
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
+
+<script type="text/javascript">
+	$(document).ready ( function(){
+	  listaAlimentos();
+	});
+	
+	function listaAlimentos(){
+		$.ajax({
+			type:"post",
+			data:{tipoFlag:"listar"},
+			url:"AlimentacaoController",
+			success: function(result){
+				var linhas = "";  
+		          for (var i = 0, length = result.length; i < length; i++) {  
+	                     var re = result[i];  
+	                     linhas += "<tr>"+  
+	                                    "<th>"+re.codProduto+"</th>"+
+	                                   // "<th>"+re.codPessoa+"</th>"+
+	                                    "<th>"+re.nomeProduto+"</th>"+
+	                                    "<th>"+re.observacao+"</th>"+
+	                                    "<th><a href='alimentoCadastro.jsp?tipo=1&codProduto="+re.codProduto+"'>Alterar</a></th>"+
+	                                    "<th><a href='javascript:void(0);' onclick='excluirAlimento("+re.codProduto+")'>Excluir</a></th>"+
+	                               "</tr>";                                     
+	       }      
+	       var divCorpo = document.getElementById("linhaTabela");  
+	       divCorpo.innerHTML=linhas;  
+	     },  
+	     error: function() {  
+	       alert("Ocorreu um erro na requisição ajax");  
+	     }  
+		});
+	}
+	
+
+	function excluirAlimento(codLote){
+		
+		$.ajax({
+			type:"post",
+			data:{tipoFlag:"excluir",codProduto:codProduto},
+			url:"AlimentacaoController",
+			success: function(result){
+				alert(result);
+			}
+		});
+		location.reload(true);
+	}
+	</script>
+
+
+
+
+
 </head>
 <body>
 
@@ -20,38 +72,26 @@
 		<div class="col-sm-3">
 			<div class="list-group">
 			  <a href="tipoAlimCadastro.jsp" class="list-group-item">Nova Alimentação</a>
-			  <a href="#" class="list-group-item">Alterar</a>
-			  <a href="#" class="list-group-item">Excluir</a>
 			</div>
 		</div>
 		
 		<div class="col-sm-9">
 			<table class="table table-striped">
-		    <thead>
+			 
+			 <thead>
 		      <tr>
 		        <th>Codigo</th>
 		        <th>Nome</th>
 		        <th>Descrição</th>
+		        <th></th>
+		        <th></th>
 		      </tr>
 		    </thead>
-		    <tbody>
-		      <tr>
-		        <td>001</td>
-		        <td>Silagem composição 1</td>
-		        <td>Mulho, com 40 dias de fermentação</td>
-		      </tr>
-		      <tr>
-		        <td>001</td>
-		        <td>Silagem composição 1</td>
-		        <td>Mulho, com 40 dias de fermentação</td>
-		      </tr>
-		      <tr>
-		        <td>001</td>
-		        <td>Silagem composição 1</td>
-		        <td>Mulho, com 40 dias de fermentação</td>
-		      </tr>
+		    <tbody id="linhaTabela">
+		  
 		    </tbody>
 		  </table>
+			
 		</div>
 		
 	</div>

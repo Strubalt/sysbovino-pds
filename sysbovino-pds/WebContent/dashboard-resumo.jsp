@@ -136,9 +136,19 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                
+                <div class="col-sm-12">
+                	<div class="col-sm-3">
+						<div class="list-group">
+						  <a href="animalCadastro.jsp" class="list-group-item">Nova Pessoa</a>
+						  <a href="#" class="list-group-item">Novo Veterinário</a>
+						</div>
+					</div>
+                </div>
             </div>
             <!-- /.row -->
+            <div class="row">
+            	
+            </div>
         </div>
         <!-- /#page-wrapper -->
 

@@ -13,24 +13,29 @@
 	<classpathentry exported="true" kind="lib" path="jboss-logging-3.3.0.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-java8-5.0.2.Final.jar"/>
 	<classpathentry exported="true" kind="lib" path="hibernate-jpamodelgen-5.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/hibernate-3.5.3.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/hibernate-commons-annotations-5.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/hibernate-core-5.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/hibernate-entitymanager-5.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/hibernate-envers-5.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/jandex-1.2.2.Final.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/log4j-1.2.16.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/slf4j-log4j12-1.7.12.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/slf4j-api-1.7.12.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/commons-collections-3.2.jar"/>
-	<classpathentry kind="lib" path="hibernateLibs/mysql-connector-java-5.0.8-bin.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/antlr-2.7.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/hibernate-3.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/hibernate-commons-annotations-5.0.0.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/hibernate-core-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/hibernate-entitymanager-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/hibernate-envers-5.0.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/jandex-1.2.2.Final.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/log4j-1.2.16.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/slf4j-log4j12-1.7.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/slf4j-api-1.7.12.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/commons-collections-3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="hibernateLibs/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
+	<classpathentry exported="true" kind="lib" path="C:/Desenvolvimento/workspace_unisc/sysbovino-pds/sysbovino-pds/WebContent/WEB-INF/commons-digester3-3.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0 (3)">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_66">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
-	<classpathentry kind="lib" path="C:/Desenvolvimento/workspace_unisc/sysbovino-pds/sysbovino-pds/WebContent/WEB-INF/commons-digester3-3.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
