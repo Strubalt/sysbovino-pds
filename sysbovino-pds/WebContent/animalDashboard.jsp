@@ -10,6 +10,13 @@
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	body{
+	background-color: #F4FFFA;
+	}
+	
+	</style>
+
 </head>
 <body>
 
@@ -20,8 +27,6 @@
 		<div class="col-sm-3">
 			<div class="list-group">
 			  <a href="animalCadastro.jsp" class="list-group-item">Novo Bovino</a>
-			  <a href="#" class="list-group-item">Alterar</a>
-			  <a href="#" class="list-group-item">Excluir</a>
 			</div>
 		</div>
 		

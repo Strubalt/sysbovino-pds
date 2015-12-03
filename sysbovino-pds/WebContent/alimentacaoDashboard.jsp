@@ -10,6 +10,13 @@
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
+<style type="text/css">
+	body{
+	background-color: #FFFDF7;
+	}
+	
+	</style>
+
 
 <script type="text/javascript">
 	$(document).ready ( function(){
@@ -71,7 +78,7 @@
 	<div class="col-sm-12">
 		<div class="col-sm-3">
 			<div class="list-group">
-			  <a href="tipoAlimCadastro.jsp" class="list-group-item">Nova Alimentação</a>
+			  <a href="alimentoCadastro.jsp" class="list-group-item">Nova Alimentação</a>
 			</div>
 		</div>
 		

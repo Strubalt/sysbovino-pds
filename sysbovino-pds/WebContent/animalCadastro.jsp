@@ -14,6 +14,13 @@
   	})
   	</script>
 
+<style type="text/css">
+	body{
+	background-color: #F4FFFA;
+	}
+	
+	</style>
+
 <title>Mastrinder - Cadastro de Animal</title>
 
 <script type="text/javascript">
@@ -60,7 +67,7 @@
 <!-- container principal -->
 <div class="container">
 	<div class="page-header"><h1>Cadastro de Animal</h1></div> 
-	<div class="col-md-6 col-sm-6">
+	
 	  <form class="form-horizontal" role="form">
 	    <div class="form-group">
 	      <div class="form-group">
@@ -160,7 +167,7 @@
 	      </div>
 	    </div>
 	  </form>
-	</div>
+	
 </div> <!-- fim container principal -->
 </body>
 </html>

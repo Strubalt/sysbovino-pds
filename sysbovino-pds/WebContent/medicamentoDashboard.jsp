@@ -5,9 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Saúde animal</title>
+	<!-- bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  	
   	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  	<script src="js/bootstrap-datetimepicker.min.js"></script>
+  	<script src="js/purl.js"></script>
 
 <script type="text/javascript">
 $(document).ready ( function(){
@@ -38,6 +43,9 @@ function listaMedicamentos(){
      }  
 	});
 }
+function excluirMedicamento(codMedicamento){
+	
+}
 
 </script>
 </head>
@@ -48,21 +56,44 @@ function listaMedicamentos(){
 	<div class="col-sm-12">
 		<div class="col-sm-3">
 			<div class="list-group">
-			  <a href="animalCadastro.jsp" class="list-group-item">Novo Medicamento</a>
-			  <a href="#" class="list-group-item">Novo Veterinário</a>
+			  <a href="medicamentoCadastro.jsp" class="list-group-item">Novo Medicamento</a>
+			  <a href="#" class="list-group-item">Nova Aplicação</a>
 			</div>
 		</div>
 		
-		<div class="col-sm-9">
-			<table class="table table-striped">
+		<div class="col-sm-9" style=" border: 0px; height: 250px;">
+			<table class="table table-striped" >
 		    <thead>
 		      <tr>
 		        <th>Codigo</th>
 		        <th>Medicamento</th>
+		        <th></th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody id="linhaTabela">
 		      
+		    </tbody>
+		  </table>
+		</div>
+		<hr>
+		<div class="col-sm-9" >
+			<table class="table table-striped" >
+		    <thead>
+		      <tr>
+		        <th>Codigo</th>
+		        <th>Medicamento</th>
+		        <th></th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody id="fff">
+		      <tr>
+		      	<th>1</th>
+		      	<th>1</th>
+		      	<th></th>
+		      	<th></th>
+		      </tr>
 		    </tbody>
 		  </table>
 		</div>

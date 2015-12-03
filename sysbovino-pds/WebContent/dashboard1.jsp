@@ -35,18 +35,18 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			       
 			      <ul class="nav navbar-nav navbar-center">
-			        <li><a href="loteDashboard.jsp" class="active">Lote</a></li>
-			        <li><a href="animalDashboard.jsp">Animal</a></li>
-			        <li><a href="alimentacaoDashboard.jsp">Alimentação</a></li>
-			        <li><a href="medicamentoDashboard.jsp">Saúde</a></li>
-			        <li><a href="ExemplosTelas.jsp">Exemplo</a></li>
+			        <li><a style="background-color: #D7EAFF" href="loteDashboard.jsp" class="active">Lote</a></li>
+			        <li><a  style="background-color: #AED7AE" href="animalDashboard.jsp">Animal</a></li>
+			        <li><a style="background-color: #FDF0D9" href="alimentacaoDashboard.jsp">Alimentação</a></li>
+			        <li><a style="background-color: #FFEDED" href="medicamentoDashboard.jsp">Saúde</a></li>
+			        
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
 			</nav>
 	  	</div>
 	  	<div class="row">
-				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino" style=" border: 0px; height: 700px;">
+				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino" style=" border: 0px; height: 600px;">
 				</iframe>
 			</div>
 	  

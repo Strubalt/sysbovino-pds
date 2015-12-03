@@ -6,7 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
+	<style type="text/css">
+	body {
+    background-image: url("img/campo-background.jpg");
+    
+}
 	
+	</style>
 	<!-- MetisMenu CSS -->
     <link href="css/css-morris/metisMenu.min.css" rel="stylesheet">
 	
@@ -34,7 +40,7 @@
     <script src="js/js-morris/sb-admin-2.js"></script>
 
 </head>
-<body>
+<body background="black "> 	
 
 	<div class="col-lg-12 col-md-12 col-sm-12">
             <div class="row">
@@ -136,14 +142,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-sm-12">
-                	<div class="col-sm-3">
-						<div class="list-group">
-						  <a href="animalCadastro.jsp" class="list-group-item">Nova Pessoa</a>
-						  <a href="#" class="list-group-item">Novo Veterinário</a>
-						</div>
-					</div>
-                </div>
+               
             </div>
             <!-- /.row -->
             <div class="row">

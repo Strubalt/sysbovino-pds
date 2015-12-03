@@ -9,7 +9,14 @@
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
-
+	<style type="text/css">
+	#header-lote{
+	background-image: url("img/lote-bovino2.JPG");
+	height: 130px;
+	}
+	
+	</style>
+	
 <script type="text/javascript">
 	$(document).ready ( function(){
 	  listaLotes();
@@ -61,7 +68,7 @@
 <body>
 
 <div class="container">
-	<div class="page-header"><h1>Lote</h1></div>
+	<div class="page-header" id="header-lote"><h1>Lote</h1></div>
 	
 	<div class="col-sm-12">
 		<div class="col-sm-3">
@@ -77,8 +84,9 @@
 		      <tr>
 		        <th>Lote</th>
 		        <th>Propriedade</th>
-		        <th>Qntde Bovinos</th>
+		        <th>Data Criação</th>
 		        <th>Descrição</th>
+		        <th>Opções</th>
 		        <th></th>
 		        <th></th>
 		      </tr>

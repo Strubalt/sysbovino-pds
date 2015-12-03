@@ -8,6 +8,21 @@
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   
+  <script type="text/javascript">
+  
+  function entrar(){
+	  var user = $("#user").val();
+	  var senha = $("#senha").val();
+	  
+	  if(user == "admin" && senha == "admin"){
+		  location.href='dashboard1.jsp';
+	  }else{
+		  alert("Usuário e Senha incorretos");
+	  }
+  }
+  
+  </script>
+  
   <style type="text/css">
   .form-signin {
   max-width: 330px;
@@ -49,21 +64,21 @@
 </head>
 <body>
 <div class="container">
-	<center><h2>Mastrinder - Sistema Bovino FODÃO</h2></center>
+	<center><h2>Mastrinder - Sistema Bovino</h2></center>
 </div>
 <div class="container">
 	 <form class="form-signin">
         <h2 class="form-signin-heading">Identifique-se:</h2>
         <label for="inputEmail" class="sr-only">Usuário:</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="usuario" required autofocus>
+        <input type="email" id="user" class="form-control" placeholder="usuario" required autofocus>
         <label for="inputPassword" class="sr-only">Senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <input type="password" id="senha" class="form-control" placeholder="Senha" required>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Lembre-me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="entrar()">Entrar</button>
       </form>
 
     </div> <!-- /container -->

@@ -1,8 +1,8 @@
 package com.sysbovino.controllers;
 
-import java.awt.List;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ import com.sysbovino.hibernate.HibernateUtil;
 /**
  * Servlet implementation class medicamentoController
  */
-@WebServlet("/medicamentoController")
+@WebServlet("/MedicamentoController")
 public class MedicamentoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -59,15 +59,16 @@ public class MedicamentoController extends HttpServlet {
       			out.print(objJsonArray);
       			
       		}
-      		this.getServletContext().getRequestDispatcher("/WEB-INF/loteCadastro.jsp").forward(request, response);
+      		
 	}
 	
 	public JSONArray listaMedicamento(){
+		System.out.println("chegou");
 		Medicamento remedio = new Medicamento();
 		JSONArray objJsonArray = new JSONArray();
 		
 		MedicamentoDAO remedioDAO = new MedicamentoDAO(HibernateUtil.getSessionFactory(), remedio.getClass());
-		java.util.List list = remedioDAO.Listar();
+		List list = remedioDAO.Listar();
 		for(int i = 0;i<list.size();i++){
 			Medicamento rem = new Medicamento();
 			JSONObject objJsonRem = new JSONObject();

@@ -15,6 +15,12 @@
 
 <title>Mastrinder - Cadastro de Alimento</title>
 
+<style type="text/css">
+	body{
+	background-color: #FFFAF3;
+	}
+	
+	</style>
  	
 <script type="text/javascript">
 var tipoFlag = "salvar";
@@ -88,25 +94,25 @@ function carregaCompos(codProduto){
 <!-- container principal -->
 <div class="container">
 	 <div class="page-header"><h1>Cadastro de Alimento</h1></div> 
-	<div class="col-md-6 col-sm-6">
+	
 	  <form class="form-horizontal" role="form">
-	    <div class="form-group">
-	      <div class="form-group">
-	      <label class="control-label col-sm-2" for="pwd"> Código:</label>
-	      <div class="col-sm-8">          
-	        <input type="text" class="form-control" id="codigo" placeholder="">
+	    
+	      <div class="form-group col-sm-12">
+		      <label class="control-label col-sm-2" for="pwd"> Código:</label>
+		      <div class="col-sm-10">          
+		        <input type="text" class="form-control" id="codigo" placeholder="">
+		      </div>
 	      </div>
-	      </div>
-	      <br/>
+	     <div class="form-group col-sm-12">
 	      <label class="control-label col-sm-2" for="codigo">Fornecedora: </label>
-	      <div class="col-sm-8">
+	      <div class="col-sm-10">
 	        <input type="text" class="form-control" id="fornecedora" placeholder="">
 	      </div>
 	    </div>
-	  <br/>
+	  
 	    <div class="form-group">
 	      <label class="control-label col-sm-2" for="pwd">Nome do Produto:</label>
-	      <div class="col-sm-8">          
+	      <div class="col-sm-10">          
 	        <input type="text" class="form-control" id="nomeProduto" placeholder="">
 	      </div>
 	    </div>
@@ -130,13 +136,13 @@ function carregaCompos(codProduto){
 		  </div>
 	    <br/>
 	    <div class="form-group">        
-	      <div class="col-sm-offset-2 col-sm-10">
+	      <div class="col-sm-10">
 	        <button type="submit" class="btn btn-default"; onclick="enviar()"; return false;>Salvar</button>
 	        <button type="button" class="btn btn-danger">Cancelar</button>
 	      </div>
 	    </div>
 	  </form>
 	</div>
-</div> <!-- fim container principal -->
+	
 </body>
 </html>
