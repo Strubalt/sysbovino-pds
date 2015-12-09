@@ -47,7 +47,27 @@ $(document).ready ( function(){
         	pickTime: false
         });
         
+        $("#datePickerIniFase").datetimepicker({
+        	language: 'pt-BR',
+        	pickTime: false //não aparecer a hora
+        });
+        
+        $("#datePickerFimFase").datetimepicker({
+        	language: 'pt-BR',
+        	pickTime: false //não aparecer a hora
+        });
+        
+        $("#datePickerIniAlim").datetimepicker({
+        	language: 'pt-BR',
+        	pickTime: false //não aparecer a hora
+        });
+        $("#datePickerFimAlim").datetimepicker({
+        	language: 'pt-BR',
+        	pickTime: false //não aparecer a hora
+        });
+        
         populaPropriedade();
+        populaFase();
 	});
 
 function enviar(){
@@ -58,7 +78,14 @@ function enviar(){
 	var codPropriedade = $("#propriedade").val();
 	var dataEncerramento = $("#dataEncerramento").val();
 	
+	var codFase = $("fase").val();
+	var dataIniFase = $("#dataIniFase").val();
+	var dataFimFase = $("#dataFimFase").val();
 	
+	var codAlimentacao = $("#idAlimentacao").val(0);
+	var dataInicio = $("#dataIniAlim").val();
+	var dataFimPrev = $("#dataFimAlim").val();
+	var pesoLote = $("#pesoLoteAlim").val();
 	//vamos criar a ajax para enviar e receber os dados do controller
 	$.ajax({
 		type:"POST",
@@ -71,11 +98,50 @@ function enviar(){
 				dataEncerramento:dataEncerramento},
 		url:"LoteController",
 		success: function(result){
-			
+			enviaFase(codLote, codFase, dataIniFase, dataFimFase);
+			enviaTipoAlimentacao(codLote, codAlimentacao, pesoLote, dataInicio, dataFimPrev);
 		}
 			
 	});
 	location.href='loteDashboard.jsp';
+}
+
+function enviaTipoAlimentacao(codLote, codAlimentacao, pesoLote, dataInicio, dataFimPrev){
+	var item = 1;
+	$.ajax({
+		type:"POST",
+		data:{tipoFlag:tipoFlag, 
+				codLote:codLote,  
+				codAlimentacao:codAlimetacao,
+				dataInicio:dataInicio,
+				dataFimPrev:dataFimPrev,
+				pesoLote:pesoLote,
+				item:item},
+		// url:"TipoAlimentacaoController",
+		success: function(result){
+			
+		}
+			
+	});
+	
+}
+
+function enviaFase(codLote, codFase, dataIni, dataFim){
+	var item = 1;
+	$.ajax({
+		type:"POST",
+		data:{tipoFlag:tipoFlag, 
+				codLote:codLote,  
+				codFase:codFase,
+				dataIni:dataIni,
+				dataFim:dataFim,
+				item:item},
+		url:"FaseLoteController",
+		success: function(result){
+			
+		}
+			
+	});
 }
 
 function carregaCompos(codLote){
@@ -108,6 +174,24 @@ function populaPropriedade(){
 		            linhas += "<option value='"+re.codPropriedade+"'>"+re.codPropriedade+" - "+re.nomePessoa+"("+re.numIncra+")</option>";                                            
 				}      
 			var divCorpo = document.getElementById("propriedade");  
+			divCorpo.innerHTML=linhas;  
+		}
+	});
+}
+
+function populaFase(){
+	$.ajax({
+		type:"post",
+		data:{tipoFlag:"populaFase"},
+		dataType: "json",
+		url:"FaseController",
+		success: function(result){
+			var linhas = "";  
+		        for (var i = 0, length = result.length; i < length; i++) {  
+		            var re = result[i];  
+		            linhas += "<option value='"+re.codFase+"'>"+re.codFase+" - "+re.nomeFase+"</option>";                                            
+				}      
+			var divCorpo = document.getElementById("fase");  
 			divCorpo.innerHTML=linhas;  
 		}
 	});
@@ -167,14 +251,18 @@ function populaPropriedade(){
 		      </div>
     	</div>
     	
+    	<!-- ------------FASE ------------------ -->
 	      <hr>
 			<div class="page"><h3>Fase</h3></div>	      
 	        <div class="form-group">
 		      <label class="control-label col-sm-2" >Fase:</label>
-		      <div class="col-sm-10">
+		      <div class="col-sm-8">
 		        <select id="fase" class="form-control"> <!-- select -->
 		          <option>0 - Nome Fase</option>
 		        </select>
+		      </div>
+		      <div class="col-sm-2">
+		      	<button type="button"  class="btn btn-danger" onclick="alert('Deve chamar a tela de cadastro de nova fase');">Nova fase</button>
 		      </div>
     	</div>
 	   
@@ -205,6 +293,7 @@ function populaPropriedade(){
 	    <div class="form-group">
 	    </div>
 	    
+	    <!-- ---------------------ALIMENTAÇÃO-------------- -->
 	    <hr>
 		<div class="page"><h3>Alimentacao</h3></div>
 		<div class="row col-sm-12">
@@ -215,19 +304,37 @@ function populaPropriedade(){
 		      </div>
 		    </div>
 		    <div class="form-group col-sm-6">
-		      <label class="control-label col-sm-4">Item:</label>
+		      <label class="control-label col-sm-4">Peso Atual Lote:</label>
 		      <div class="col-sm-8">
-		        <input type="text" class="form-control" id="idAlimentacao" placeholder="01">
+		        <input type="text" class="form-control" id="pesoLoteAlim" placeholder="01">
 		      </div>
 		    </div>
 	    </div>
-	    <div class="form-group">
-	      <label class="control-label col-sm-2">:</label>
-	      <div class="col-sm-10">
-	        <input type="text" class="form-control" id="idAlimentacao" placeholder="01">
+	    
+	     <div class="row col-sm-12">
+	   	<div class="form-group col-sm-6">
+	      <label class="control-label col-sm-4">Data inicio:</label>
+	      	<div class="col-sm-8">
+		      <div class="input-append" id="datePickerIniAlim">
+		       <span class="add-on">
+		        <input type="text" class="form-control" id="dataIniAlim" placeholder="dd/mm/aaaa" data-format="dd-MM-yyyy"></input>
+			    </span>
+		      </div>
+		    </div>
+		  </div>
+	    
+	    <div class="form-group col-sm-6">
+	      <label class="control-label col-sm-4">Data fim previsto:</label>
+	      <div class="col-sm-8">
+	      	<div class="input-append" id="datePickerFimAlim">
+		       <span class="add-on">
+	        		<input type="text" class="form-control" id="dataFimAlim" placeholder="dd/mm/aaaa" data-format="dd-MM-yyyy">
+	        	</span>
+		     </div>
 	      </div>
 	    </div>
-			
+	  </div>
+	    			
 	     <div class="form-group">        
 	      <div class="col-sm-offset-2 col-sm-10" id="divBotoes">
 	        <input type="button" class="btn btn-default"; onclick="enviar()"; return false;" value="Salvar">

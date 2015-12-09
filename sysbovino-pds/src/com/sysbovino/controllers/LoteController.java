@@ -86,6 +86,8 @@ public class LoteController extends HttpServlet {
 		}else if(tipo.equals("propriedade")){
 			objJsonArray = listaPropriedades();
 			out.print(objJsonArray);
+		}else if(tipo.equals("comboLote")){
+			out.print(listaComboLote());
 		}else{
 				//recebe o resto dos paramentros
 				Integer codLote = Integer.parseInt(request.getParameter("codLote"));
@@ -191,6 +193,25 @@ public class LoteController extends HttpServlet {
 				}
 		
 		return objJsonArray;
+	}
+	
+	public JSONArray listaComboLote() {
+		Lote objLote = new Lote();
+		JSONArray objJsonArray = new JSONArray();
+		LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), objLote.getClass());
+		List list = loteDao.Listar();
+		for (int i = 0; i < list.size(); i++) {
+			Lote lote = new Lote();
+			JSONObject objJsonLote = new JSONObject();
+			lote = (Lote) list.get(i);
+
+			objJsonLote.put("codLote", lote.getCodLote());
+			objJsonLote.put("descricaoLote", lote.getDescricaoLote());
+			objJsonArray.put(objJsonLote);
+		}
+
+		return objJsonArray;
+
 	}
 	
 }

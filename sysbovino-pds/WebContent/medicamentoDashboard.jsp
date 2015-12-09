@@ -62,6 +62,13 @@ function excluirMedicamento(codMedicamento){
 		</div>
 		
 		<div class="col-sm-9" style=" border: 0px; height: 250px;">
+			
+			<ul class="nav nav-tabs">
+			  <li class="active"><a href="#">Medicamentos</a></li>
+			  <li><a href="#">Veterinários</a></li>
+			  <li><a href="#">Aplicações</a></li>
+			</ul>
+			
 			<table class="table table-striped" >
 		    <thead>
 		      <tr>

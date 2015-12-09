@@ -17,9 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.sysbovino.daos.FaseLoteDAO;
+import com.sysbovino.daos.FaseLoteIdDAO;
 import com.sysbovino.daos.LoteDAO;
 import com.sysbovino.daos.PessoaDAO;
 import com.sysbovino.daos.PropriedadeDAO;
+import com.sysbovino.entidades.FaseLote;
+import com.sysbovino.entidades.FaseLoteId;
 import com.sysbovino.entidades.Lote;
 import com.sysbovino.entidades.Pessoa;
 import com.sysbovino.entidades.Propriedade;
@@ -65,6 +69,43 @@ public class FaseLoteController extends HttpServlet {
 		if(tipo.equals("populaLotes")){
 			objJsonArray = listaLote();
 			out.print(objJsonArray);
+			
+		}else{
+		   
+			Integer codLote = Integer.parseInt(request.getParameter("codLote"));
+			Integer codFase = Integer.parseInt(request.getParameter("codFase"));
+			String stDataIni = request.getParameter("dataIni");
+			String stDataFim = request.getParameter("dataFim");
+			Integer codItem = Integer.parseInt(request.getParameter("item"));
+			
+			FaseLote objFaseLote = new FaseLote();
+			FaseLoteId objFaseLoteID = new FaseLoteId();
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+			try {
+				Date dateInicio = (Date)formatter.parse(stDataIni);
+				Date dateFim = (Date)formatter.parse(stDataFim);
+			
+				objFaseLoteID.setCodLote(codLote);
+				objFaseLoteID.setCodFase(codFase);
+				objFaseLoteID.setCodItem(codItem);
+				
+				objFaseLote.setId(objFaseLoteID);
+				objFaseLote.setDataInicio(dateInicio);
+				objFaseLote.setDataFim(dateFim);
+				
+				
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			FaseLoteIdDAO objFaseIdDAO = new FaseLoteIdDAO(HibernateUtil.getSessionFactory(), objFaseLoteID.getClass());
+			FaseLoteDAO objFaseDAO = new FaseLoteDAO(HibernateUtil.getSessionFactory(), objFaseLote.getClass());
+			if(tipo.equals("salvar")){
+				objFaseIdDAO.Salvar(objFaseLoteID);
+				objFaseDAO.Salvar(objFaseLote);
+				
+			}
 			
 		}
 			
