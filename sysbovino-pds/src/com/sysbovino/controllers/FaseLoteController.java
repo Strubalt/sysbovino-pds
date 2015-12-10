@@ -102,7 +102,7 @@ public class FaseLoteController extends HttpServlet {
 			FaseLoteIdDAO objFaseIdDAO = new FaseLoteIdDAO(HibernateUtil.getSessionFactory(), objFaseLoteID.getClass());
 			FaseLoteDAO objFaseDAO = new FaseLoteDAO(HibernateUtil.getSessionFactory(), objFaseLote.getClass());
 			if(tipo.equals("salvar")){
-				objFaseIdDAO.Salvar(objFaseLoteID);
+				//objFaseIdDAO.Salvar(objFaseLoteID);
 				objFaseDAO.Salvar(objFaseLote);
 				
 			}

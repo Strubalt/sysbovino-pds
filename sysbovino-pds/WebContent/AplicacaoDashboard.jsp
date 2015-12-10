@@ -17,27 +17,36 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		listaMedicamentos();
+		listaAplicacao();
 	});
 
-	function listaMedicamentos() {
+	function listaAplicacao() {
 		$
 				.ajax({
 					type : "post",
 					data : {
 						tipoFlag : "listar"
 					},
-					url : "MedicamentoController",
+					url : "AplicacaoController",
 					success : function(result) {
 						var linhas = "";
 						for (var i = 0, length = result.length; i < length; i++) {
 							var re = result[i];
-							linhas += "<tr>"
+							linhas += "<tr>" 
+									+ "<th>"+ re.codHistoricoMedicacao+ "</th>"
+									+ "<th>"+ re.codGado+ "</th>"
+									+ "<th>"+ re.codPessoa+ "</th>"
 									+ "<th>"+ re.codMedicamento+ "</th>"
-									+ "<th>"+ re.nomeMedicamento+ "</th>"
-									+ "<th><a href='medicamentoCadastro.jsp?tipo=1&codMedicamento="+ re.codMedicamento+ "'>Alterar</a></th>"
-									+ "<th><a href='javascript:void(0);' onclick='excluirMedicamento("+ re.codMedicamento + ")'>Excluir</a></th>"
-									+ "</tr>";
+									+ "<th>"+ re.loteMedicamento+ "</th>"
+									+ "<th>"+ re.dataMedicacao+ "</th>"
+									+ "<th>"+ re.oservacao+ "</th>"
+									+ "<th>"+ re.dosagem+ "</th>"
+									+ "<th><a href='aplicacaoCadastro.jsp?tipo=1&codHistoricoMedicacao="
+									+ re.codHistoricoMedicacao
+									+ "'>Alterar</a></th>"
+									+ "<th><a href='javascript:void(0);' onclick='excluirAplicacao("
+									+ re.codHistoricoMedicacao
+									+ ")'>Excluir</a></th>" + "</tr>";
 						}
 						var divCorpo = document.getElementById("linhaTabela");
 						divCorpo.innerHTML = linhas;
@@ -47,15 +56,15 @@
 					}
 				});
 	}
-	function excluirMedicamento(codMedicamento) {
+	function excluirAplicacao(codHistoricoMedicacao) {
 
 		$.ajax({
 			type : "post",
 			data : {
 				tipoFlag : "excluir",
-				codMedicamento : codMedicamento
+				codMedicamento : codHistoricoMedicacao
 			},
-			url : "MedicamentoController",
+			url : "aplicacaoController",
 			success : function(result) {
 				alert(result);
 			}
@@ -67,14 +76,14 @@
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h1>Medicação</h1>
+			<h1>Aplicacao</h1>
 		</div>
 
 		<div class="col-sm-12">
 			<div class="col-sm-3">
 				<div class="list-group">
-					<a href="medicamentoCadastro.jsp" class="list-group-item">Novo
-						Medicamento</a>
+					<a href="aplicacaoCadastro.jsp" class="list-group-item">Nova
+						Aplicacao</a>
 				</div>
 			</div>
 
@@ -82,9 +91,14 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Codigo</th>
-							<th>Medicamento</th>
-							
+							<th>Cod Historico</th>
+							<th>Cod Gado</th>
+							<th>Cod Pessoa</th>
+							<th>Cod Medicamento</th>
+							<th>Lote Medicamento</th>
+							<th>Data Medicacao</th>
+							<th>Observacao</th>
+							<th>Dosagem</th>
 						</tr>
 					</thead>
 					<tbody id="linhaTabela">

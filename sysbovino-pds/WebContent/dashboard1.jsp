@@ -9,7 +9,7 @@
   	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	
-	<base target="destino" />  
+	<base target="destino1" />  
 	
 <title>Mastrinder - Sitema bovino</title>
 </head>
@@ -38,7 +38,7 @@
 			        <li><a style="background-color: #D7EAFF" href="loteDashboard.jsp" class="active">Lote</a></li>
 			        <li><a  style="background-color: #AED7AE" href="animalDashboard.jsp">Animal</a></li>
 			        <li><a style="background-color: #FDF0D9" href="alimentacaoDashboard.jsp">Alimentação</a></li>
-			        <li><a style="background-color: #FFEDED" href="medicamentoDashboard.jsp">Saúde</a></li>
+			        <li><a style="background-color: #FFEDED" href="saudeDashboard.jsp">Saúde</a></li>
 			        
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
@@ -46,7 +46,7 @@
 			</nav>
 	  	</div>
 	  	<div class="row">
-				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino" style=" border: 0px; height: 600px;">
+				<iframe class="col-lg-12" src="dashboard-resumo.jsp" name="destino1" style=" border: 0px; height: 600px;">
 				</iframe>
 			</div>
 	  

@@ -34,6 +34,7 @@ $(document).ready ( function(){
 	   if(tipo != null){	
 		   carregaCompos(codLote);
 		   tipoFlag = "alterar";
+		   $("#cadastrosFaseAlim").hide();
 	   }
 	   
 	   //Usado no datetimepicker
@@ -77,18 +78,21 @@ function enviar(){
 	var dataCricao = $("#dataCriacao").val(); //document.getElementById("comment").value;
 	var codPropriedade = $("#propriedade").val();
 	var dataEncerramento = $("#dataEncerramento").val();
-	
-	var codFase = $("fase").val();
-	var dataIniFase = $("#dataIniFase").val();
-	var dataFimFase = $("#dataFimFase").val();
-	
-	var codAlimentacao = $("#idAlimentacao").val(0);
-	var dataInicio = $("#dataIniAlim").val();
-	var dataFimPrev = $("#dataFimAlim").val();
-	var pesoLote = $("#pesoLoteAlim").val();
+	if(tipoFlag =="alterar"){
+		var codFase = $("#fase").val();
+		var dataIniFase = $("#dataIniFase").val();
+		var dataFimFase = $("#dataFimFase").val();
+		
+		var codAlimentacao = $("#idAlimentacao").val();
+		var dataInicio = $("#dataIniAlim").val();
+		var dataFimPrev = $("#dataFimAlim").val();
+		var pesoLote = $("#pesoLoteAlim").val();
+	}
 	//vamos criar a ajax para enviar e receber os dados do controller
 	$.ajax({
-		type:"POST",
+		type:"post",
+		dataType:"json",
+		url:"LoteController",
 		data:{tipoFlag:tipoFlag, 
 				codLote:codLote,  
 				descricaoLote:descricaoLote, 
@@ -96,28 +100,33 @@ function enviar(){
 				codPropriedade:codPropriedade, 
 				dataCricao:dataCricao, 
 				dataEncerramento:dataEncerramento},
-		url:"LoteController",
-		success: function(result){
-			enviaFase(codLote, codFase, dataIniFase, dataFimFase);
-			enviaTipoAlimentacao(codLote, codAlimentacao, pesoLote, dataInicio, dataFimPrev);
-		}
+		//contentType: "application/json; charset=utf-8",
+		complete: function (){
+			alert("Completo");
+		},
+		
 			
 	});
-	location.href='loteDashboard.jsp';
+	if(tipoFlag =="alterar"){
+		enviaFase(codLote, codFase, dataIniFase, dataFimFase);
+		enviaTipoAlimentacao(codLote, codAlimentacao, pesoLote, dataInicio, dataFimPrev);
+	}
+	//location.href='loteDashboard.jsp';
 }
 
 function enviaTipoAlimentacao(codLote, codAlimentacao, pesoLote, dataInicio, dataFimPrev){
 	var item = 1;
 	$.ajax({
 		type:"POST",
+		dataType:"JSON",
 		data:{tipoFlag:tipoFlag, 
 				codLote:codLote,  
-				codAlimentacao:codAlimetacao,
+				codAlimentacao:codAlimentacao,
 				dataInicio:dataInicio,
 				dataFimPrev:dataFimPrev,
 				pesoLote:pesoLote,
 				item:item},
-		// url:"TipoAlimentacaoController",
+		url:"LoteAlimentacaoController",
 		success: function(result){
 			
 		}
@@ -130,6 +139,7 @@ function enviaFase(codLote, codFase, dataIni, dataFim){
 	var item = 1;
 	$.ajax({
 		type:"POST",
+		dataType:"JSON",
 		data:{tipoFlag:tipoFlag, 
 				codLote:codLote,  
 				codFase:codFase,
@@ -252,18 +262,17 @@ function populaFase(){
     	</div>
     	
     	<!-- ------------FASE ------------------ -->
+    	<div id="cadastrosFaseAlim">
 	      <hr>
 			<div class="page"><h3>Fase</h3></div>	      
 	        <div class="form-group">
 		      <label class="control-label col-sm-2" >Fase:</label>
 		      <div class="col-sm-8">
 		        <select id="fase" class="form-control"> <!-- select -->
-		          <option>0 - Nome Fase</option>
+		          
 		        </select>
 		      </div>
-		      <div class="col-sm-2">
-		      	<button type="button"  class="btn btn-danger" onclick="alert('Deve chamar a tela de cadastro de nova fase');">Nova fase</button>
-		      </div>
+		      
     	</div>
 	   
 	    
@@ -341,7 +350,7 @@ function populaFase(){
 	        <button type="button"  class="btn btn-danger" onclick="location.href='loteDashboard.jsp';">Cancelar</button>
 	      </div>
 	    </div>
-	    
+	    </div>
 	  </form>
 	</div><!-- fim container principal -->
 </body>

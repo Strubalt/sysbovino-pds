@@ -81,6 +81,7 @@ public class LoteController extends HttpServlet {
 			lote.setCodLote(codLote);
 			LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
 			loteDao.Apagar(lote);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/loteDashboard.jsp").forward(request, response);
 			out.print("Excluído");
 			
 		}else if(tipo.equals("propriedade")){
@@ -117,10 +118,11 @@ public class LoteController extends HttpServlet {
 				LoteDAO loteDao = new LoteDAO(HibernateUtil.getSessionFactory(), lote.getClass());
 			if(tipo.equals("salvar")){	
 				loteDao.Salvar(lote);
+				out.print("Salvo");
 			}else if(tipo.equals("alterar")){
 				loteDao.Update(lote);
 			}
-			this.getServletContext().getRequestDispatcher("/WEB-INF/loteCadastro.jsp").forward(request, response);
+			//this.getServletContext().getRequestDispatcher("/WEB-INF/loteCadastro.jsp").forward(request, response);
 		}
 	}
 	
