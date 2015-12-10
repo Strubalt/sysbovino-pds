@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lote</title>
+<title>Gado</title>
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery.js"></script>
@@ -80,7 +80,7 @@
 <div class="container">
 	<div class="page-header"><h1>Bovino</h1></div>
 	
-	<div class="col-sm-12">
+		<div class="col-sm-8">
 		<div class="col-sm-3">
 			<div class="list-group">
 			  <a href="animalCadastro.jsp" class="list-group-item">Novo Bovino</a>

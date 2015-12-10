@@ -11,14 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.sysbovino.daos.GadoDAO;
+import com.sysbovino.daos.GadoPesagemDAO;
 import com.sysbovino.daos.LoteDAO;
 import com.sysbovino.daos.MedicamentoDAO;
 import com.sysbovino.daos.RacaDAO;
 import com.sysbovino.entidades.Gado;
+import com.sysbovino.entidades.GadoPesagem;
 import com.sysbovino.entidades.Lote;
 import com.sysbovino.entidades.Raca;
 import com.sysbovino.hibernate.HibernateUtil;
@@ -68,44 +71,54 @@ public class GadoController extends HttpServlet {
 			objJson = getGado(codLote);
 			out.print(objJson);	
 		}else{
-			Date data = new Date();
-			//codigo,  lote, raca, peso, dataPesagem, racaPai, racaMae, observacoes
-			//recebe os os valores da tela
-			//System.out.println(request.getParameter("procedencia").charAt(0));
-			int cod_raca = Integer.parseInt(request.getParameter("raca"));
-			Date data_nascimento =  data; //request.getParameter("dataNascimento");
-			int raca_pai = Integer.parseInt(request.getParameter("racaPai"));
-			int raca_mae = Integer.parseInt(request.getParameter("racaMae"));
-			char flag_status = 'B';
-			char flag_procedencia = 'S';//request.getParameter("procedencia").charAt(0);
-			char sexualidade = 'M'; //request.getParameter("sexo").charAt(0);
-			String observacao = request.getParameter("observacao");
-			int cod_sisbov = 1234;//Integer.parseInt(request.getParameter("sisbov"));
 			
+			try{
+				Date data = new Date();
 			
-			//mostra no console o resultado
-			//System.out.println("Chegou "+texto);
+				String tipo_flag = request.getParameter("tipoFlag");
+				
+				int cod_raca = Integer.parseInt(request.getParameter("raca"));
+				Date data_nascimento =  data; //request.getParameter("dataNascimento");
+				int raca_pai = Integer.parseInt(request.getParameter("racaPai"));
+				int raca_mae = Integer.parseInt(request.getParameter("racaMae"));
+				String flag_status = request.getParameter("status");
+				String flag_procedencia = request.getParameter("procedencia");
+				String sexualidade = request.getParameter("sexualidade");
+				String observacao = request.getParameter("observacoes");
+				int cod_sisbov = Integer.parseInt(request.getParameter("sisbov"));
+				double peso = Double.parseDouble(request.getParameter("peso"));
+				
+				Gado gado = new Gado();
+				gado.setCodRaca(cod_raca);
+				gado.setDataNascimento(data_nascimento);
+				gado.setRacaPai(raca_pai);
+				gado.setRacaMae(raca_mae);
+				gado.setFlagStatus(flag_status.charAt(0));
+				gado.setSexualidade(sexualidade.charAt(0));
+				gado.setObservacao(observacao);
+				gado.setCodSisbov(cod_sisbov);
+				gado.setFlagProcedencia(flag_procedencia.charAt(0));
+				
+				GadoDAO gadoDao = new GadoDAO(HibernateUtil.getSessionFactory(), gado.getClass()); 
 			
-			Gado gado = new Gado();
-			gado.setCodRaca(cod_raca);
-			gado.setDataNascimento(data_nascimento);
-			gado.setRacaPai(raca_pai);
-			gado.setRacaMae(raca_mae);
-			gado.setFlagStatus(flag_status);
-			gado.setSexualidade(sexualidade);
-			gado.setObservacao(observacao);
-			gado.setCodSisbov(cod_sisbov);
-			gado.setFlagProcedencia(flag_procedencia);
-			
-			GadoDAO gadoDao = new GadoDAO(HibernateUtil.getSessionFactory(), gado.getClass()); 
-			
-			gadoDao.Salvar(gado);
-			//nesse espeço vai ser tratado a logica e enviado para as classes de inserção
-			//após informado o retorno a tela
-			//retorno será tanto uma confirmação de inserção como uma lista de bovinos ou lote
+				if(tipo_flag.equals("alterar")){
+					gadoDao.Atualizar(gado);;
+				}else{
+					gadoDao.Salvar(gado);	
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally {
+				out.print("ERRO");
+			}
 		}
 	}
 	
+	public JSONObject salvou(){
+		JSONObject objJsonGado = new JSONObject();
+		objJsonGado.put("Salvou", true);
+		return(objJsonGado);
+	}
 	
 	public JSONObject getGado(int codGado) {
 		System.out.println("dadosLotes");
